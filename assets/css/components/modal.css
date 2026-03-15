@@ -1,0 +1,173 @@
+/* ===================================
+   MODAL – Luxury Blur Overlay
+=================================== */
+
+.modal-overlay{
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(5,10,25,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: opacity .35s ease, visibility .35s ease;
+
+  z-index: 1000;
+}
+
+
+/* Active */
+.modal-overlay.active{
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* Modal Box */
+.modal{
+  width: min(90%, 600px);
+  padding: 2.5rem 2rem;
+  border-radius: var(--radius-lg);
+
+  background: linear-gradient(
+    145deg,
+    rgba(30,40,80,.95),
+    rgba(15,20,50,.95)
+  );
+
+  border: 1px solid rgba(255,255,255,0.1);
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.6),
+    0 0 40px rgba(51,138,202,.2);
+
+  transform: translateY(30px) scale(.95);
+  transition: transform .4s cubic-bezier(.22,.61,.36,1);
+}
+
+
+/* Active Animation */
+.modal-overlay.active .modal{
+  transform: translateY(0) scale(1);
+}
+
+
+/* Close Button */
+.modal-close{
+  position:absolute;
+  top:18px;
+  right:18px;
+
+  width:34px;
+  height:34px;
+  border-radius:50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background: rgba(255,255,255,0.05);
+  cursor:pointer;
+  transition: background .3s ease;
+}
+
+.modal-close:hover{
+  background: rgba(255,255,255,0.15);
+}
+
+
+/* Responsive */
+@media(max-width:768px){
+
+  .modal{
+    padding: 2rem 1.5rem;
+  }
+
+}
+
+/* ===============================
+   PRIVACY MODAL
+================================= */
+
+.privacy-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(10,15,30,.75);
+  backdrop-filter:blur(6px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  visibility:hidden;
+  transition:.3s ease;
+  z-index:9999;
+}
+
+.privacy-modal.active{
+  opacity:1;
+  visibility:visible;
+}
+
+.privacy-content{
+  background:#ffffff;
+  color:#1a1f2e; /* 👈 TEXTO NEGRO CORPORATIVO */
+  max-width:600px;
+  width:90%;
+  padding:40px;
+  border-radius:16px;
+  position:relative;
+  animation:fadeUp .4s ease;
+  box-shadow:0 20px 50px rgba(0,0,0,.25);
+}
+
+.privacy-content h3{
+  color:#338aca;
+  margin-bottom:15px;
+  font-weight:600;
+}
+
+.privacy-content p{
+  color:#444;
+  line-height:1.6;
+  font-size:0.95rem;
+  margin-bottom:14px;
+}
+
+.privacy-content strong{
+  color:#111;
+}
+
+.privacy-content a{
+  color:#338aca;
+  font-weight:500;
+  text-decoration:none;
+}
+
+
+.close-privacy{
+  position:absolute;
+  top:12px;
+  right:15px;
+  background:none;
+  border:none;
+  font-size:24px;
+  cursor:pointer;
+}
+
+@keyframes fadeUp{
+  from{
+    transform:translateY(20px);
+    opacity:0;
+  }
+  to{
+    transform:translateY(0);
+    opacity:1;
+  }
+}
+

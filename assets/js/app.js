@@ -1,261 +1,297 @@
-/* =====================================================
-   SAFE ACCESS
-===================================================== */
+/* ===================================
+   UTILITIES
+=================================== */
 
-function safeGet(obj, path, fallback = "") {
-  try {
-    return path.split(".").reduce((o, p) => o[p], obj) ?? fallback;
-  } catch {
-    return fallback;
-  }
+function safe(value, fallback = "") {
+  return value ?? fallback;
 }
 
-/* =====================================================
-   CTA INTELIGENTE UNIFICADO
-===================================================== */
+/* ===================================
+   HERO
+=================================== */
 
-function buildCTA(cta, contact) {
-
-  if (!cta?.enabled || !cta.url) return "";
-
-  let url = cta.url.trim();
-
-  // Número puro → WhatsApp
-  if (/^\d+$/.test(url)) {
-    return `
-      <a href="https://wa.me/${url}"
-         class="btn section-cta"
-         target="_blank"
-         rel="noopener">
-         ${cta.text || "Contactar"}
-      </a>
-    `;
-  }
-
-  // URL normal
-  return `
-    <a href="${url}"
-       class="btn section-cta"
-       target="_blank"
-       rel="noopener">
-       ${cta.text || "Más información"}
-    </a>
-  `;
-}
-
-/* =====================================================
-   HERO RENDER
-===================================================== */
-
-function renderHero(hero, contact) {
-
+function renderHero(hero) {
   if (!hero?.enabled) return;
 
   const heroSection = document.getElementById("heroSection");
   if (!heroSection) return;
 
-  heroSection.style.backgroundImage =
-  `url('${safeGet(hero, "background")}')`;
-
-
-  let ctaHTML = "";
-
-  if (hero.cta?.enabled) {
-
-    let finalUrl = "#";
-
-    if (hero.cta.type === "whatsapp") {
-      finalUrl = `https://wa.me/${safeGet(contact,"whatsapp")}?text=${encodeURIComponent(hero.cta.message || "")}`;
-    }
-
-    if (hero.cta.type === "url") {
-      finalUrl = hero.cta.url;
-    }
-
-    ctaHTML = `
-      <a href="${finalUrl}" class="btn" target="_blank" rel="noopener">
-        ${hero.cta.text || "Contactar"}
-      </a>
-    `;
-  }
+  heroSection.style.backgroundImage = `url('${hero.background}')`;
 
   heroSection.innerHTML = `
-    <div class="hero-content container">
-      <img src="${safeGet(hero,"logo")}"
-           class="hero-logo"
-           alt="Pulido Asesores"
-           fetchpriority="high">
-      <h1>${safeGet(hero,"title")}</h1>
-      <p>${safeGet(hero,"subtitle")}</p>
-      ${ctaHTML}
+    <div class="hero-content">
+      ${hero.logo ? `<img src="${hero.logo}" alt="Logo" class="hero-logo">` : ""}
+      <h1>${safe(hero.title)}</h1>
+      <p>${safe(hero.subtitle)}</p>
+      ${hero.cta?.enabled ? `
+        <a href="${hero.cta.url}" class="btn btn-premium">
+          ${hero.cta.text}
+        </a>
+      ` : ""}
     </div>
   `;
 }
 
-/* =====================================================
-   RENDER SECTIONS
-===================================================== */
+/* ===================================
+   SECTIONS
+=================================== */
 
 function renderSections(sections, contact) {
-
   const container = document.getElementById("dynamicContent");
   if (!container) return;
 
   container.innerHTML = "";
 
-  sections.forEach(section => {
+  sections
+    .filter(section => section.enabled)
+    .forEach(section => {
 
-    if (!section.enabled) return;
+      let contentHTML = "";
 
-    const sectionEl = document.createElement("section");
-    sectionEl.className = "container card";
-    sectionEl.id = safeGet(section, "id");
+/* ===================================
+   GRID EXTENDED (Institucional Premium)
+=================================== */
+if (section.type === "grid-extended" && section.items?.length) {
 
-    let contentHTML = "";
+  container.innerHTML += `
+    <section id="${section.id}" class="grid-extended-section">
+      <div class="container">
 
-    // 🔹 Soporte texto como lista o párrafo
-    if (Array.isArray(section.text)) {
-      contentHTML = `
-        <ul class="service-list">
-          ${section.text.map(item => `<li>${item}</li>`).join("")}
-        </ul>
-      `;
-    } else {
-      contentHTML = `<p>${safeGet(section,"text")}</p>`;
-    }
-
-    // 🔹 Imagen estática premium
-    let imageHTML = "";
-
-    if (section.images?.enabled && section.images.items?.length) {
-
-      imageHTML = `
-        <div class="section-image">
-          <img src="${section.images.items[0]}"
-              alt="${safeGet(section,"title")}"
-              loading="lazy">
+        <div class="grid-extended-header reveal">
+          <h2>${safe(section.title)}</h2>
+          ${section.subtitle ? `<p class="grid-extended-subtitle">${section.subtitle}</p>` : ""}
+          ${section.cta ? `
+            <div class="grid-extended-cta">
+              <a href="${section.cta.url}" class="btn btn-premium">
+                ${section.cta.text}
+              </a>
+            </div>
+          ` : ""}
         </div>
-      `;
-    }
 
+        <div class="grid-extended-container">
+          ${section.items.map(item => `
+            <article class="grid-extended-card reveal">
 
-    // 🔹 Lotties
-let lottiesHTML = "";
+              <span class="grid-extended-number">
+                ${item.number}
+              </span>
 
-if (section.lotties?.enabled && section.lotties.items?.length) {
+              <div class="grid-extended-icon lottie-icon"
+                   data-path="${item.icon}"
+                   data-loop="false">
+              </div>
 
-  lottiesHTML = `
-    <div class="lottie-grid">
-      ${section.lotties.items.map(item => `
-        <div class="lottie-item">
-          <div class="lottie-icon"
-               data-path="${item.path}"
-               data-loop="${section.lotties.loop}"
-               data-autoplay="${section.lotties.autoplay}">
-          </div>
-          <div class="lottie-label">
-            ${item.label}
-          </div>
+              <h3>${safe(item.title)}</h3>
+              <p>${safe(item.description)}</p>
+
+              ${item.link ? `
+                <a href="${item.link}" class="grid-extended-link">
+                  Conocer más →
+                </a>
+              ` : ""}
+            </article>
+          `).join("")}
         </div>
-      `).join("")}
-    </div>
+
+      </div>
+    </section>
   `;
+  return;
+}
+
+      /* ===================================
+         GRID TYPE (Nuevo soporte)
+      =================================== */
+      if (section.type === "grid" && section.items?.length) {
+
+        container.innerHTML += `
+          <section id="${section.id}" class="grid-section">
+            <div class="container">
+              <h2 class="reveal">${safe(section.title)}</h2>
+              <p class="reveal">${safe(section.text)}</p>
+
+              <div class="grid-container">
+                ${section.items.map(item => `
+                  <div class="grid-card reveal">
+                    <div class="lottie-icon" 
+                        data-path="${item.lottie}"
+                        data-autoplay="true"
+                        data-loop="false">
+                    </div>
+                    <h3>${safe(item.title)}</h3>
+                    <p>${safe(item.text)}</p>
+                  </div>
+                `).join("")}
+              </div>
+            </div>
+          </section>
+        `;
+
+        return;
+      }
+
+      /* ===================================
+        TEXTO LISTADO PREMIUM
+      =================================== */
+      else {
+
+        const listHTML = section.text
+          ? `
+            <ul class="premium-list">
+              ${section.text
+                .split("\n")
+                .filter(item => item.trim() !== "")
+                .map(item => `<li>${item.trim()}</li>`)
+                .join("")}
+            </ul>
+          `
+          : "";
+
+        const imageHTML = section.image
+          ? `
+            <div class="section-media reveal reveal-left">
+              <img 
+                src="${section.image}" 
+                loading="lazy"
+                decoding="async"
+                alt="${safe(section.title)}"
+              >
+            </div>
+          `
+          : "";
+
+        const quoteHTML = section.quote?.text
+          ? `
+            <blockquote class="section-quote">
+              <p>"${section.quote.text}"</p>
+              ${section.quote.author ? `<span>- ${section.quote.author}</span>` : ""}
+            </blockquote>
+          `
+          : "";
+
+        contentHTML = `
+          <div class="section-layout">
+            ${imageHTML}
+            <div class="section-content reveal reveal-right">
+              ${listHTML}
+              ${quoteHTML}
+            </div>
+          </div>
+        `;
+      }
+      
+      /* ===================================
+         MAPA
+      =================================== */
+      const mapHTML = (section.map && contact?.mapEmbed)
+        ? `
+          <div class="map-container reveal">
+            <iframe
+              src="${contact.mapEmbed}"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        `
+        : "";
+
+      /* ===================================
+         CTA
+      =================================== */
+      const ctaHTML = section.cta
+        ? `
+          <div class="section-cta reveal">
+            <a href="${section.cta.url}" class="btn">
+              ${section.cta.text}
+            </a>
+          </div>
+        `
+        : "";
+
+      container.innerHTML += `
+        <section id="${section.id}">
+          <div class="container card card-reveal">
+            <h2>${safe(section.title)}</h2>
+
+            ${section.type !== "grid" ? contentHTML : ""}
+
+            ${section.type === "grid" ? contentHTML : ""}
+
+            ${mapHTML}
+            ${ctaHTML}
+          </div>
+        </section>
+      `;
+    });
+
+  // IMPORTANTE:
+  initLotties();
 }
 
 
+/* ===================================
+   FOOTER
+=================================== */
 
-    // 🔹 Quote
-    let quoteHTML = "";
-
-    if (section.quote?.enabled) {
-      quoteHTML = `
-        <div class="quote">
-          ${section.quote.text}
-        </div>
-      `;
-    }
-
-    // 🔹 Mapa
-    let mapHTML = "";
-
-    if (section.map?.enabled && contact?.mapEmbed) {
-      mapHTML = `
-        <div class="map-container">
-          <iframe src="${contact.mapEmbed}"
-                  loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
-                  allowfullscreen="">
-          </iframe>
-        </div>
-      `;
-    }
-
-
-    sectionEl.innerHTML = `
-      <h2>${safeGet(section,"title")}</h2>
-      ${contentHTML}
-      ${imageHTML}
-      ${lottiesHTML}
-      ${quoteHTML}
-      ${mapHTML}
-      ${buildCTA(section.cta, contact)}
-    `;
-
-    container.appendChild(sectionEl);
-
-  });
-
-  // 🔹 Inicializar componentes dinámicos
-  if (typeof initLotties === "function") initLotties();
-
-  activateReveal();
-}
-
-
-
-/* =====================================================
-   FOOTER + PRIVACY MODAL
-===================================================== */
-
-function renderFooter(meta){
-
+function renderFooter(contact) {
   const footer = document.getElementById("footerSection");
-  if(!footer) return;
-
-  const year = new Date().getFullYear();
+  if (!footer || !contact?.enabled) return;
 
   footer.innerHTML = `
     <div class="footer-container">
-      <p>© ${year} Pulido Asesores. Todos los derechos reservados.</p>
-      <a href="#" class="privacy-link" id="openPrivacy">Aviso de Privacidad</a>
+      <p>
+        © ${new Date().getFullYear()} Pulido Asesores.
+        Todos los derechos reservados.
+      </p>
+      <p>
+        <a href="#" id="privacyLink">Aviso de Privacidad</a>
+      </p>
     </div>
 
-    <!-- Modal -->
-    <div class="privacy-modal" id="privacyModal">
+    <!-- Modal Aviso de Privacidad -->
+    <div id="privacyModal" class="privacy-modal">
       <div class="privacy-content">
-        <button class="close-modal" id="closePrivacy">×</button>
-        <h2>Aviso de Privacidad</h2>
+        <button id="closePrivacy" class="close-privacy">&times;</button>
+
+        <h3>Aviso de Privacidad</h3>
+
         <p>
-        En Pulido Asesores protegemos la información de nuestros clientes conforme
-        a la legislación mexicana vigente. Los datos personales proporcionados
-        serán utilizados únicamente para fines de contacto, prestación de servicios
-        profesionales y cumplimiento de obligaciones legales.
+          En Pulido Asesores respetamos y protegemos sus datos personales
+          conforme a la Ley Federal de Protección de Datos Personales en
+          Posesión de los Particulares.
         </p>
+
         <p>
-        Usted podrá ejercer en cualquier momento sus derechos de acceso,
-        rectificación, cancelación u oposición (ARCO) enviando solicitud al correo:
-        contacto@pulidoasesores.com
+          La información proporcionada será utilizada exclusivamente para fines
+          de contacto profesional, prestación de servicios de auditoría,
+          cumplimiento fiscal y comunicación institucional.
         </p>
+
+        <p>
+          Usted puede ejercer sus derechos ARCO (Acceso, Rectificación,
+          Cancelación y Oposición) enviando una solicitud al correo:
+          contacto@pulidoasesores.com
+        </p>
+
+        <p>
+          Pulido Asesores implementa medidas de seguridad técnicas,
+          administrativas y físicas para proteger su información.
+        </p>
+
       </div>
     </div>
   `;
+}
 
-  // Eventos
+function activatePrivacyModal() {
+  const link = document.getElementById("privacyLink");
   const modal = document.getElementById("privacyModal");
-  const openBtn = document.getElementById("openPrivacy");
   const closeBtn = document.getElementById("closePrivacy");
 
-  openBtn.addEventListener("click", e => {
+  if (!link || !modal || !closeBtn) return;
+
+  link.addEventListener("click", (e) => {
     e.preventDefault();
     modal.classList.add("active");
     document.body.style.overflow = "hidden";
@@ -263,91 +299,197 @@ function renderFooter(meta){
 
   closeBtn.addEventListener("click", () => {
     modal.classList.remove("active");
-    document.body.style.overflow = "";
+    document.body.style.overflow = "auto";
   });
 
   modal.addEventListener("click", (e) => {
-    if(e.target === modal){
+    if (e.target === modal) {
       modal.classList.remove("active");
-      document.body.style.overflow = "";
+      document.body.style.overflow = "auto";
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      modal.classList.remove("active");
+      document.body.style.overflow = "auto";
     }
   });
 }
 
 
-
-/* =====================================================
+/* ===================================
    SCROLL REVEAL
-===================================================== */
+=================================== */
 
 function activateReveal() {
+  const reveals = document.querySelectorAll(".reveal, .card-reveal");
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add("reveal");
+        entry.target.classList.add("visible");
       }
     });
-  }, { threshold: .15 });
+  }, { threshold: 0.15 });
 
-  document.querySelectorAll(".card, .lottie-icon").forEach(el=>{
-  observer.observe(el);
+  reveals.forEach(el => observer.observe(el));
+}
+
+/* ===================================
+   DYNAMIC SECTION MENU
+=================================== */
+
+function renderMenu(sections) {
+
+  const nav = document.getElementById("dynamicMenu");
+  if (!nav) return;
+
+  const enabledSections = sections.filter(
+    section => section.enabled && section.id && section.title
+  );
+
+  nav.innerHTML = `
+    <div class="menu-container">
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        ☰
+      </button>
+
+      <ul class="menu-list">
+        ${enabledSections.map(section => `
+          <li>
+            <a href="#${section.id}">
+              ${section.menuLabel || section.title}
+            </a>
+          </li>
+        `).join("")}
+      </ul>
+    </div>
+  `;
+
+  // 👇 Inicializamos aquí porque el menú acaba de generarse
+  initMenuBehavior();
+}
+
+function initMenuBehavior() {
+
+  const toggle = document.getElementById("menuToggle");
+  const list = document.querySelector(".menu-list");
+
+  if (!toggle || !list) return;
+
+  toggle.addEventListener("click", () => {
+
+    list.classList.toggle("active");
+
+    if (list.classList.contains("active")) {
+      toggle.innerHTML = "✕";
+      toggle.style.color = "#1f3e63";
+    } else {
+      toggle.innerHTML = "☰";
+      toggle.style.color = "#ffffff";
+    }
+
+  });
+
+  // 👉 Cerrar al hacer click en un link
+  const links = list.querySelectorAll("a");
+
+  links.forEach(link => {
+    link.addEventListener("click", () => {
+      list.classList.remove("active");
+      toggle.innerHTML = "☰";
+      toggle.style.color = "#ffffff";
+    });
+  });
+
+  // 👉 NUEVO: Cerrar al tocar fuera
+  document.addEventListener("click", function (e) {
+
+    const isMenuOpen = list.classList.contains("active");
+    if (!isMenuOpen) return;
+
+    const clickedInsideMenu = e.target.closest(".menu-list");
+    const clickedToggle = e.target.closest("#menuToggle");
+
+    if (!clickedInsideMenu && !clickedToggle) {
+      list.classList.remove("active");
+      toggle.innerHTML = "☰";
+      toggle.style.color = "#ffffff";
+    }
+
+  });
+}
+
+
+
+
+/* ===================================
+   INITIALIZE UI (Modular Boot)
+=================================== */
+
+function initializeUI(data) {
+  renderHero(data.hero);
+  renderSections(data.sections, data.contact);
+  renderFooter(data.contact);
+
+  if (typeof initLotties === "function") initLotties();
+
+  activateReveal();
+  activatePrivacyModal();
+}
+
+/* ===================================
+   INIT
+=================================== */
+
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    const response = await fetch(`data/content.json?v=${Date.now()}`);
+    const data = await response.json();
+
+    /* ===================================
+      SEO META FROM JSON
+    =================================== */
+
+    if (data.meta?.enabled) {
+
+      document.getElementById("metaTitle").textContent = data.meta.title || "";
+      document.getElementById("metaDescription").setAttribute("content", data.meta.description || "");
+      document.getElementById("metaKeywords").setAttribute("content", data.meta.keywords || "");
+
+      const canonical = document.getElementById("canonicalUrl");
+      if (canonical) canonical.setAttribute("href", data.meta.url || "");
+
+      document.getElementById("ogTitle").setAttribute("content", data.meta.title || "");
+      document.getElementById("ogDescription").setAttribute("content", data.meta.description || "");
+      document.getElementById("ogUrl").setAttribute("content", data.meta.url || "");
+    }
+
+    renderHero(data.hero);
+    renderMenu(data.sections); // 👈 Ya llama initMenuBehavior internamente
+    renderSections(data.sections, data.contact);
+    renderFooter(data.contact);
+
+    if (typeof initLotties === "function") {
+      initLotties();
+    }
+
+    activateReveal();
+    activatePrivacyModal();
+
+  } catch (error) {
+    console.error("Error loading content:", error);
+  }
 });
 
-}
+/* ===================================
+   HERO PARALLAX
+=================================== */
 
-/* =====================================================
-   FETCH CMS
-===================================================== */
-
-fetch("data/content.json")
-  .then(res => {
-    if (!res.ok) throw new Error("JSON no encontrado");
-    return res.json();
-  })
-  .then(data => {
-    renderHero(data.hero, data.contact);
-    renderSections(data.sections, data.contact);
-    renderFooter(data.meta);
-  })
-
-
-  .catch(err => {
-    console.error("Error cargando JSON:", err);
-  });
-
-  function initLotties(){
-
-  if(typeof lottie === "undefined"){
-    console.warn("Lottie library not loaded");
-    return;
-  }
-
-  document.querySelectorAll(".lottie-icon").forEach(container => {
-
-    const path = container.dataset.path;
-    const loop = container.dataset.loop === "true";
-    const autoplay = container.dataset.autoplay === "true";
-
-    if(!path) return;
-
-    lottie.loadAnimation({
-      container: container,
-      renderer: "svg",
-      loop: loop,
-      autoplay: autoplay,
-      path: path
-    });
-
-  });
-
-}
-
-// Cinematic Parallax
 window.addEventListener("scroll", () => {
   const hero = document.querySelector(".hero");
-  if(!hero) return;
+  if (!hero) return;
 
-  const scrollY = window.scrollY;
-  hero.style.backgroundPosition = `center ${scrollY * 0.15}px`;
+  hero.style.backgroundPosition = `center ${window.scrollY * 0.15}px`;
 });

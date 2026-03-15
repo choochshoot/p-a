@@ -1,0 +1,46 @@
+/* ===================================
+   REVEAL SCROLL SYSTEM
+=================================== */
+
+.reveal{
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity .8s cubic-bezier(.22,.61,.36,1),
+    transform .8s cubic-bezier(.22,.61,.36,1);
+}
+
+/* Active state */
+.reveal.visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Subtle variation */
+.reveal-left{
+  opacity: 0;
+  transform: translateX(-50px);
+  transition:
+    opacity .8s cubic-bezier(.22,.61,.36,1),
+    transform .8s cubic-bezier(.22,.61,.36,1);
+}
+
+.reveal-left.visible{
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+.reveal-right{
+  opacity: 0;
+  transform: translateX(50px);
+  transition:
+    opacity .8s cubic-bezier(.22,.61,.36,1),
+    transform .8s cubic-bezier(.22,.61,.36,1);
+}
+
+.reveal-right.visible{
+  opacity: 1;
+  transform: translateX(0);
+}

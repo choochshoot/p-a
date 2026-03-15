@@ -1,0 +1,118 @@
+/* ===================================
+   DESIGN SYSTEM VARIABLES
+   Pulido Asesores — Premium System
+=================================== */
+
+:root {
+
+  /* ==============================
+     COLOR SYSTEM
+  ============================== */
+
+  /* Base Background */
+  --bg: #191834;
+  --bg-soft: #1f2045;
+  --bg-elevated: #24265a;
+
+  /* Card Surfaces */
+  --card: #0b1220;
+  --card-soft: #111827;
+
+  /* Text */
+  --text: #eaeaea;
+  --text-muted: rgba(255,255,255,0.7);
+  --text-soft: rgba(255,255,255,0.5);
+
+  /* Accent */
+  --accent: #2a7de1;
+  --accent-light: #338aca;
+  --accent-soft: #26b7cd;
+
+  /* Semantic */
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --error: #ef4444;
+
+  /* ==============================
+     SPACING SYSTEM
+     (8pt scale)
+  ============================== */
+
+  --space-1: 0.5rem;   /* 8px */
+  --space-2: 1rem;     /* 16px */
+  --space-3: 1.5rem;   /* 24px */
+  --space-4: 2rem;     /* 32px */
+  --space-5: 3rem;     /* 48px */
+  --space-6: 4rem;     /* 64px */
+
+  /* ==============================
+     BORDER RADIUS
+  ============================== */
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 28px;
+
+  /* ==============================
+     SHADOW SYSTEM
+  ============================== */
+
+  --shadow-sm: 0 4px 12px rgba(0,0,0,0.15);
+  --shadow-md: 0 12px 32px rgba(0,0,0,0.25);
+  --shadow-lg: 0 30px 80px rgba(0,0,0,0.45);
+
+  /* Glow accent */
+  --glow-accent: 0 0 14px rgba(42,125,225,.6);
+
+  /* ==============================
+     TRANSITIONS
+  ============================== */
+
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.35s ease;
+  --transition-slow: 0.6s cubic-bezier(.22,1,.36,1);
+
+  /* ==============================
+     TYPOGRAPHY SCALE
+  ============================== */
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 1.5rem;
+  --fs-2xl: 2rem;
+  --fs-3xl: 3rem;
+
+  /* ==============================
+     CONTAINER WIDTH
+  ============================== */
+
+  --container-max: 1200px;
+
+}
+
+
+/* ===================================
+   RESPONSIVE VARIABLES
+   (Mobile adjustments)
+=================================== */
+
+@media (max-width: 768px) {
+
+  :root {
+
+    /* Adjust spacing slightly tighter */
+    --space-4: 1.5rem;
+    --space-5: 2.5rem;
+    --space-6: 3rem;
+
+    /* Slightly reduce text scale */
+    --fs-2xl: 1.8rem;
+    --fs-3xl: 2.4rem;
+
+  }
+
+}
+

@@ -1,0 +1,37 @@
+/* ===================================
+   FOOTER
+=================================== */
+
+#footerSection{
+  padding: 3rem 0;
+  margin-top: 4rem;
+
+  border-top: 1px solid rgba(255,255,255,.06);
+
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(15, 23, 42, .7)
+  );
+}
+
+.footer-container{
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-container p{
+  font-size: .9rem;
+  color: var(--text-soft);
+}
+
+.footer-container a{
+  color: var(--accent);
+  transition: opacity .3s ease;
+}
+
+.footer-container a:hover{
+  opacity: .7;
+}
+

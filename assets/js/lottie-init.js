@@ -1,28 +1,45 @@
-document.addEventListener("DOMContentLoaded",()=>{
+function initLotties() {
 
-  document.querySelectorAll(".lottie-icon").forEach((el,index)=>{
+  const lottieElements = document.querySelectorAll(".lottie-icon");
+
+  lottieElements.forEach((el, index) => {
+
+    if (el.dataset.loaded) return;
+    el.dataset.loaded = "true";
 
     const animation = lottie.loadAnimation({
       container: el,
-      renderer:"svg",
-      loop:false,
-      autoplay:false,
-      path: el.dataset.path
+      renderer: "svg",
+      loop: el.dataset.loop === "true",
+      autoplay: false,
+      path: el.dataset.path,
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid meet"
+      }
     });
 
-    const observer = new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          setTimeout(()=>{
-            el.classList.add("reveal-icon");
-            animation.play();
-          }, index * 200);
+
+    const observer = new IntersectionObserver(entries => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+          el.classList.add("reveal-icon");
+          animation.play();
+
+        } else {
+
+          animation.pause();
+
         }
+
       });
-    },{threshold:.4});
+
+    }, { threshold: 0.35 });
 
     observer.observe(el);
 
   });
 
-});
+}

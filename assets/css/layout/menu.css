@@ -1,0 +1,214 @@
+/* ===================================
+   SECTION MENU — DESKTOP + MOBILE
+=================================== */
+
+
+/* ===================================
+   BASE
+=================================== */
+
+.section-nav {
+  position: relative;
+  margin-top: -40px;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+}
+
+/* CONTENEDOR DESKTOP */
+.menu-container {
+  background: rgba(10, 20, 40, 0.9);
+  backdrop-filter: blur(8px);
+  padding: 18px 60px;
+  border-radius: 50px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+  width: fit-content;
+}
+
+
+/* ===================================
+   DESKTOP MODE (HORIZONTAL GRID)
+=================================== */
+
+.menu-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(6, auto);
+  gap: 60px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-list li {
+  text-align: center;
+}
+
+.menu-list a {
+  text-decoration: none;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  opacity: 0.75;
+  transition: all 0.3s ease;
+}
+
+.menu-list a:hover {
+  opacity: 1;
+}
+
+/* Burger hidden on desktop */
+.menu-toggle {
+  display: none;
+}
+
+
+/* ===================================
+   MOBILE MODE — CEO BOUTIQUE
+=================================== */
+
+@media (max-width: 768px) {
+
+  /* NAV posicion arriba derecha */
+  .section-nav {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    margin-top: 0;
+    z-index: 999;
+    justify-content: flex-end;
+  }
+
+  .menu-container {
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  /* BOTÓN BURGER */
+  .menu-toggle {
+    display: block;
+    font-size: 1.8rem;
+    background: rgba(10, 20, 40, 0.92);
+    backdrop-filter: blur(8px);
+    color: #ffffff;
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 1001;
+    transition: all 0.25s ease;
+  }
+
+  .menu-toggle:hover {
+    background: rgba(20, 40, 70, 0.95);
+  }
+
+  /* ===================================
+     PANEL LATERAL CEO
+  ==================================== */
+
+  .menu-list {
+
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  width: 50vw;
+  max-width: 220px;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 30px 32px 60px 32px;
+  gap: 18px;
+
+  /* CEO Refinado */
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(14, 32, 58, 0.85),
+      rgba(16, 38, 68, 0.90)
+    );
+
+  backdrop-filter: blur(12px);
+
+  border-left: 1px solid rgba(110,150,210,0.14);
+
+  box-shadow:
+    -6px 0 30px rgba(0,0,0,0.28),
+    inset 0 0 50px rgba(255,255,255,0.015);
+
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(.77,0,.18,1);
+
+  z-index: 1000;
+}
+
+  .menu-list.active {
+    transform: translateX(0);
+  }
+
+  /* ===================================
+     GLOW VERTICAL SUTIL EJECUTIVO
+  ==================================== */
+
+  .menu-list::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -1px;
+  width: 1px;
+  height: 100%;
+
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(90,140,200,0.45),
+    transparent
+  );
+
+  opacity: 0.4;
+  animation: ceoGlow 10s ease-in-out infinite;
+}
+
+@keyframes ceoGlow {
+  0%   { transform: translateY(-15%); }
+  50%  { transform: translateY(15%); }
+  100% { transform: translateY(-15%); }
+}
+
+  /* ITEMS */
+
+  .menu-list li {
+    width: 100%;
+    text-align: left;
+  }
+
+  .menu-list a {
+
+    display: block;
+    width: 100%;
+
+    font-size: 1.05rem;
+    font-weight: 500;
+    letter-spacing: 0.6px;
+    text-transform: none;
+
+    color: rgba(235,240,250,0.92);
+
+    padding: 2px 0;
+
+    opacity: 1;
+
+    transition: all 0.25s ease;
+  }
+
+  .menu-list a:hover {
+    color: #7eaed6;
+    transform: translateX(4px);
+  }
+
+}

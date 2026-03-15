@@ -1,0 +1,38 @@
+/* ===================================
+   PREMIUM BACKGROUND SYSTEM
+=================================== */
+
+.bg-premium{
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+
+  background:
+    radial-gradient(circle at 20% 25%, rgba(51,138,202,.28) 0%, transparent 50%),
+    radial-gradient(circle at 75% 70%, rgba(38,183,205,.25) 0%, transparent 55%),
+    linear-gradient(
+      135deg,
+      #191834 0%,
+      #2b2c68 40%,
+      #338aca 70%,
+      #26b7cd 90%,
+      #61bdaf 100%
+    );
+
+  filter: blur(40px);
+  transform: scale(1.1);
+}
+
+
+/* Subtle animation */
+@keyframes bgFloat{
+  0%{ transform: scale(1.05) translateY(0px); }
+  50%{ transform: scale(1.1) translateY(-20px); }
+  100%{ transform: scale(1.05) translateY(0px); }
+}
+
+.bg-premium{
+  animation: bgFloat 20s ease-in-out infinite;
+}
+

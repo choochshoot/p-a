@@ -1,0 +1,107 @@
+/* ===================================
+   GRID EXTENDED — BOUTIQUE INSTITUCIONAL
+=================================== */
+
+.grid-extended-section {
+  padding: 100px 0;
+}
+
+/* HEADER LAYOUT 3 COLUMNAS */
+.grid-extended-header {
+  display: grid;
+  grid-template-columns: 1.2fr 2fr auto;
+  align-items: center;
+  gap: 2.5rem;
+
+  margin-bottom: 70px;
+  text-align: left;
+}
+
+.grid-extended-header h2 {
+  font-size: 2.2rem;
+  margin: 0;
+}
+
+.grid-extended-subtitle {
+  opacity: 0.75;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.grid-extended-cta {
+  margin-top: 28px;
+}
+
+/* GRID */
+.grid-extended-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+}
+
+/* CARD */
+.grid-extended-card {
+  background: rgba(255,255,255,0.02);
+  padding: 40px 30px;
+  border-radius: 16px;
+  position: relative;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.grid-extended-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.grid-extended-number {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 0.9rem;
+  opacity: 0.3;
+  font-weight: 600;
+}
+
+.grid-extended-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 20px;
+}
+
+.grid-extended-card h3 {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+
+.grid-extended-card p {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.grid-extended-link {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  font-weight: 500;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.grid-extended-link:hover {
+  opacity: 1;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+  .grid-extended-header {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .grid-extended-cta {
+    justify-self: start;
+  }
+
+}

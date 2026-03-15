@@ -3,55 +3,169 @@
     "enabled": true,
     "title": "Pulido Asesores | Especialistas en Auditoría",
     "description": "Firma especializada en auditoría financiera, fiscal y control interno en México.",
-    "url": "https://tudominio.com",
+    "url": "https://choochshoot.github.io/p-a/",
     "keywords": "auditoría, fiscal, contabilidad, control interno, México"
   },
   "contact": {
     "enabled": true,
-    "phone": "+52-56-6855-0117",
-    "whatsapp": "525668550117",
-    "email": "contacto@pulidoasesores.com",
-    "address": "Ciudad de México, México",
-    "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.6184761185514!2d-99.16423178823796!3d19.428883740722025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff33846b3299%3A0x1fd31328356b921e!2sReforma%20222!5e0!3m2!1ses!2smx!4v1771298610470!5m2!1ses!2smx"
+    "phone": "5215563191283",
+    "whatsapp": "5563191283",
+    "email": "gpulido@palf.com.mx",
+    "address": "CDMX Reforma 222",
+    "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.6184761185514!2d-99.16423178823796!3d19.428883740722025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff33846b3299%3A0x1fd31328356b921e!2sReforma%20222!5e0!3m2!1ses!2smx!4v1771381446267!5m2!1ses!2smx"
   },
   "hero": {
     "enabled": true,
-    "background": "./assets/images/hero.webp",
-    "logo": "./assets/images/logow.webp",
+    "background": "assets/images/hero.webp",
+    "logo": "assets/images/logow.webp",
     "title": "Especialistas en Auditoría",
     "subtitle": "Certeza financiera · Control · Confianza",
     "cta": {
       "enabled": true,
       "text": "Descargar Brochure",
-      "type": "url",
-      "url": "https://choochshoot.github.io/brochure-offset/",
-      "message": ""
+      "url": "https://choochshoot.github.io/brochure-offset/"
     }
   },
   "sections": [
     {
       "enabled": true,
-      "id": "ubicacion",
-      "type": "location",
-      "title": "Ubicación",
-      "text": "Atendemos empresas en Ciudad de México y a nivel nacional.",
-      "images": {
-        "enabled": false,
-        "items": []
-      },
+      "id": "nuestroservicios",
+      "type": "default",
+      "title": "Nuestros Servicios",
+      "menuLabel": "Servicios",
+      "text": "Impuestos corporativos y estrategia fiscal empresarial\nRevisión y seguimiento de cumplimiento fiscal\nPrecios de transferencia\nFusiones y escisiones de empresas (M&A y Due diligences)\nSeguridad social y servicios fiscales en remuneraciones\nComercio Exterior, internacional y aduanas\nOtros servicios legales, fiscales, tributarios e impositivos",
+      "map": false,
+      "cta": null,
+      "image": "assets/images/servicio-fiscal2.webp",
       "quote": {
-        "enabled": false
-      },
-      "lotties": {
-        "enabled": false,
-        "items": []
-      },
-      "map": {
-        "enabled": true
-      },
-      "cta": {
-        "enabled": false
+        "text": "Análisis, control y cercanía para fortalecer decisiones financieras.",
+        "author": "Pulido "
       }
+    },
+    {
+      "enabled": true,
+      "id": "4peldanos",
+      "type": "grid",
+      "title": "Áreas Especializadas",
+      "menuLabel": "Áreas",
+      "text": "Fusiones y escisiones de empresas (M&A y Due diligences)\nSeguridad social y servicios fiscales en remuneraciones\nComercio Exterior, internacional y aduanas\nOtros servicios legales, fiscales, tributarios e impositivos",
+      "map": false,
+      "cta": null,
+      "image": null,
+      "quote": null,
+      "items": [
+        {
+          "lottie": "assets/lotties/Establish.json",
+          "title": "Consultoría",
+          "text": "Consultoría Corporativa, orientadas a optimizar recursos y evitar sanciones"
+        },
+        {
+          "lottie": "assets/lotties/Gavel.json",
+          "title": "Auditoría",
+          "text": "Auditoría preventiva y de cumplimiento interna/externa"
+        },
+        {
+          "lottie": "assets/lotties/Submitted.json",
+          "title": "Administración",
+          "text": "Administración de nómina y obligaciones patronales"
+        },
+        {
+          "lottie": "assets/lotties/Withdraw.json",
+          "title": "Contabilidad",
+          "text": "Contabilidad electrónica y fiscal"
+        }
+      ]
+    },
+    {
+      "enabled": true,
+      "id": "especialistas",
+      "type": "default",
+      "title": "Especialistas en Derecho Fiscal, Auditoría y Servicios Contables",
+      "menuLabel": "Especialistas",
+      "text": "Derecho Fiscal (planeación, litigio, cumplimiento)\nAuditoría (financiera, fiscal, preventiva)\nContabilidad (corriente, electrónica, declaraciones)",
+      "map": false,
+      "cta": {
+        "text": "Agendar Cita",
+        "url": "https://wa.me/5215668550117?text=Me%20interesa%20agendar%20una%20cita"
+      },
+      "image": "assets/images/servicio-fiscal3.webp",
+      "quote": null
+    },
+    {
+      "enabled": true,
+      "id": "fundadorgp",
+      "type": "default",
+      "title": "Nuestro Fundador",
+      "text": "Con más de 50 años de trayectoria transformando números en decisiones estratégicas, el C.P. Juan Gilberto Pulido Díaz lidera nuestra área contable con la precisión de quien entiende que detrás de cada estado financiero hay una historia de crecimiento esperando ser contada.\nSu formación académica en la Escuela Superior de Comercio y Administración del IPN y la Maestría en Negocios de la UNAM se complementa con una visión global forjada en los programas de Liderazgo Situacional y Retail Management Excellence de Volkswagen Academy, espacios exclusivos para directivos de alto nivel.\nDe la docencia a la práctica empresarial\nPor más de 50 años ha compartido su conocimiento como profesor de Contabilidad y Análisis Financiero en instituciones de prestigio como la Escuela Bancaria y Comercial, la UNAM y el IPN. Esta dualidad —academia y campo— le otorga una perspectiva única: explica con claridad lo que otros complican, y ejecuta con solidez lo que otros solo teorizan.\nUn recorrido que abarca toda la cadena de valor\nSu experiencia abarca desde el despacho fiscal hasta la dirección general, pasando por puestos estratégicos como Contralor, Gerente de Finanzas y Gerente General en empresas de retail, servicios, industria y comercio. Ha diseñado e implementado sistemas contables, financieros y comerciales, liderado auditorías financieras y operativas, y orientado proyectos de crecimiento con resultados medibles.\n\"La contabilidad bien ejecutada no es un costo: es la brújula que permite navegar con certeza en cualquier entorno económico.\"\n¿Por qué confiar en su asesoría?\nPorque ha estado del otro lado: ha firmado estados financieros, ha enfrentado auditorías, ha tomado decisiones que determinan el rumbo de empresas. Entiende la presión del empresario porque la ha vivido. Y traduce ese entendimiento en estrategias fiscales sólidas, cumplimiento tranquilo y oportunidades de optimización real.",
+      "map": false,
+      "cta": null,
+      "image": "assets/images/fundador.jpg",
+      "quote": {
+        "text": "La contabilidad bien ejecutada no es un costo: es la brújula que permite navegar con certeza en cualquier entorno económico",
+        "author": "Gilberto Pulido"
+      }
+    },
+    {
+      "enabled": true,
+      "id": "areas-estrategicas",
+      "type": "grid-extended",
+      "title": "Áreas Estratégicas",
+      "menuLabel": "Estrategia",
+      "subtitle": "Especialización jurídica y fiscal de alto nivel",
+      "cta": {
+        "text": "Solicitar Diagnóstico",
+        "url": "https://wa.me/5215668550117"
+      },
+      "items": [
+        {
+          "number": "01",
+          "title": "Planeación Fiscal Estratégica",
+          "description": "Diseño estructural corporativo orientado a eficiencia y blindaje.",
+          "icon": "assets/lotties/Establish.json",
+          "link": null
+        },
+        {
+          "number": "02",
+          "title": "Ccontaduría",
+          "description": "Auditoría y Revisoría Fiscal: Enfocada en la fiscalización de estados financieros, auditoría forense (fraude) y cumplimiento de normas de aseguramiento.",
+          "icon": "assets/lotties/Isometricdatanalysis.json",
+          "link": null
+        },
+        {
+          "number": "03",
+          "title": "Contabilidad Gerencial",
+          "description": "Proporcionamos herramientas de análisis para la gestión interna, presupuestos y control de costos.",
+          "icon": "assets/lotties/HandshakeLoop.json",
+          "link": null
+        }
+      ]
+    },
+    {
+      "enabled": true,
+      "id": "contacto",
+      "type": "default",
+      "title": "Contacto",
+      "menuLabel": "Contacto",
+      "text": "Estamos aquí para ayudarte. Contáctanos para una consulta personalizada.",
+      "map": false,
+      "cta": {
+        "text": "Enviar Mensaje",
+        "url": "https://wa.me/5215668550117?text=Hola%20Pulido%20Asesores,%20me%20gustaría%20saber%20más%20sobre%20sus%20servicios."
+      },
+      "image": null,
+      "quote": null
+    },
+    {
+      "enabled": true,
+      "id": "mapa",
+      "type": "default",
+      "title": "Ubicación",
+      "menuLabel": "Ubicación",
+      "text": "Nuestras oficinas",
+      "map": true,
+      "cta": null,
+      "image": null,
+      "quote": null
     }
   ]
 }

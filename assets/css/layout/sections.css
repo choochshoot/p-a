@@ -1,0 +1,358 @@
+/* ===================================
+   SECTIONS WRAPPER
+=================================== */
+
+section{
+  position: relative;
+  width: 100%;
+  padding: clamp(4rem, 8vw, 6rem) 0;
+}
+
+.container{
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+/* ===================================
+   CARD PREMIUM
+=================================== */
+
+.container.card{
+  background: linear-gradient(
+    145deg,
+    rgba(15, 23, 42, .85),
+    rgba(30, 41, 59, .75)
+  );
+
+  border-radius: 24px;
+  padding: clamp(2rem, 4vw, 3rem);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255,255,255,.05);
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.6),
+    inset 0 0 40px rgba(255,255,255,.02);
+}
+
+/* ===================================
+   SECTION IMAGE STATIC
+=================================== */
+
+.section-image{
+  margin-top: 2rem;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.section-image img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+  object-fit: cover;
+  transition: transform .6s ease;
+}
+
+.section-image:hover img{
+  transform: scale(1.03);
+}
+
+/* ===================================
+   QUOTE BLOCK
+=================================== */
+
+.quote{
+  margin-top: 2rem;
+  padding: 1.8rem 2rem;
+  border-left: 3px solid var(--accent);
+  background: linear-gradient(
+    90deg,
+    rgba(42,125,225,.08),
+    transparent
+  );
+  border-radius: 12px;
+  font-style: italic;
+  color: var(--text-soft);
+}
+
+/* ===================================
+   MAP CONTAINER PRO
+=================================== */
+
+.map-container {
+  margin-top: 2rem;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,.5);
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+
+/* ===================================
+   RESPONSIVE
+=================================== */
+
+@media(max-width:768px){
+
+  section{
+    padding: clamp(3rem, 6vw, 4rem) 0;
+  }
+
+  .container.card{
+    padding: 2rem;
+  }
+
+  .map-container iframe{
+    height: 320px;
+  }
+
+}
+
+/* ===================================
+   GRID RESPONSIVE LOTTIES
+=================================== */
+
+.grid-container {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .grid-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Tablet */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 599px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Card visual */
+
+.grid-card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(14px);
+  border-radius: 18px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: transform .4s ease, box-shadow .4s ease;
+}
+
+.grid-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+
+
+/* Desktop slightly larger */
+@media (min-width:1200px){
+  .lottie-icon{
+    width:110px;
+    height:110px;
+  }
+}
+
+/* Mobile lighter */
+@media (max-width:599px){
+  .lottie-icon{
+    width:70px;
+    height:70px;
+  }
+}
+
+.grid-card h3{
+  font-size:1.1rem;
+  margin-bottom:.6rem;
+  font-weight:600;
+}
+
+.grid-card p{
+  font-size:.92rem;
+  opacity:.85;
+  line-height:1.5;
+}
+
+/* ===================================
+   GRID LOTTIE ICON (Premium Responsive)
+=================================== */
+
+.lottie-icon {
+  width: 80px;
+  height: 80px;
+
+  margin: 0 auto 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+
+  transition: transform 0.3s ease;
+}
+
+.lottie-icon svg,
+.lottie-icon canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.grid-card:hover .lottie-icon {
+  transform: scale(1.05);
+}
+
+/* ================================
+   PREMIUM TWO COLUMN LAYOUT
+================================ */
+
+.section-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.section-media img {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0,0,0,.25);
+  transition: transform .6s ease;
+}
+
+.section-media img:hover {
+  transform: scale(1.03);
+}
+
+.section-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.section-quote {
+  padding: 1.5rem;
+  border-left: 4px solid rgba(255,255,255,.4);
+  background: rgba(255,255,255,.05);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  font-style: italic;
+}
+
+.section-quote span {
+  display: block;
+  margin-top: .8rem;
+  font-weight: 600;
+  opacity: .8;
+}
+
+@media (max-width: 992px) {
+  .section-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.section-content p,
+.section-content li {
+  color: var(--text-soft);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+
+.premium-list li::before {
+  content: "•";
+  color: var(--accent);
+  margin-right: .6rem;
+}
+
+/* ===================================
+   FIX CONTRASTE SECCIÓN DEFAULT
+=================================== */
+
+.container.card .section-content p,
+.container.card .section-content li {
+  color: rgba(255,255,255,0.92);
+}
+
+.container.card .section-quote p {
+  color: rgba(255,255,255,0.95);
+}
+
+.container.card .section-quote span {
+  color: rgba(255,255,255,0.75);
+}
+
+/* ===================================
+   PREMIUM SERVICE LIST STYLE
+=================================== */
+
+.premium-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.premium-list li {
+  position: relative;
+  padding-left: 1.8rem;
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  color: rgba(255,255,255,0.93);
+  transition: transform .3s ease;
+}
+
+.premium-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #5dd3b6, #2fa3ff);
+}
+
+.premium-list li:hover {
+  transform: translateX(6px);
+}
+
+.premium-list li {
+  border-left: 2px solid rgba(255,255,255,0.08);
+  padding-left: 1.5rem;
+}

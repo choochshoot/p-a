@@ -5,15 +5,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<base href="/pulido-asesores/">
+<!-- IMPORTANTE PARA GITHUB PAGES EN SUBCARPETA -->
+<!-- bye ya que ahora son rutas relativas -->
 
-<title id="metaTitle"></title>
+
+<title id="metaTitle">Pulido Asesores</title>
 <meta name="description" id="metaDescription">
 <meta name="keywords" id="metaKeywords">
 <meta name="robots" content="index,follow">
-<link rel="canonical" id="canonicalUrl">
+<link rel="canonical" id="canonicalUrl" href="https://choochshoot.github.io/p-a/">
 
-<link rel="preload" as="image" href="assets/images/logow.webp" fetchpriority="high">
+<!-- FAVICON -->
+<link rel="icon" type="image/png" href="assets/images/favicon-32x32.png">
+<!-- Apple icon -->
+<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+
+<!-- Preload Hero Background -->
+<link rel="preload" as="image" href="assets/images/hero.webp" fetchpriority="high">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -22,29 +30,71 @@
 <meta property="og:image" id="ogImage">
 <meta property="og:url" id="ogUrl">
 
+<!-- Preload CSS -->
+<link rel="preload" href="assets/css/styles.css" as="style">
+
+<!-- CSS Modular -->
 <link rel="stylesheet" href="assets/css/styles.css">
 
+<!-- Schema JSON dinámico -->
 <script type="application/ld+json" id="schemaData"></script>
 
 </head>
 
 <body>
 
-<div class="bg-premium">
+<!-- ===================================
+     PREMIUM BACKGROUND LAYER
+     (Solo decorativo — no envolver contenido)
+=================================== -->
+<div class="bg-premium"></div>
 
-  <section class="hero" id="heroSection"></section>
 
-  <main id="dynamicContent"></main>
+<!-- ===================================
+     HERO (Dinámico vía app.js)
+=================================== -->
+<section class="hero" id="heroSection"></section>
+<!-- ===================================
+    DYNAMIC SECTION MENU (Auto generado)
+=================================== -->
+<nav id="dynamicMenu" class="section-nav"></nav>
 
-  <footer id="footerSection"></footer>
+<!-- ===================================
+     MAIN CONTENT (Render dinámico)
+=================================== -->
+<main id="dynamicContent"></main>
 
-</div>
 
-<!-- LIBRERÍAS -->
+<!-- ===================================
+     FOOTER (Render dinámico)
+=================================== -->
+<footer id="footerSection"></footer>
+
+
+<!-- ===================================
+     LIBRERÍAS EXTERNAS
+=================================== -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
 
-<!-- SCRIPTS -->
+
+<!-- ===================================
+     APP SCRIPT (Dinámico CMS JSON)
+=================================== -->
 <script src="assets/js/app.js" defer></script>
+<script src="assets/js/lottie-init.js" defer></script>
+
+<!-- ===================================
+     WHATSAPP FLOATING BUTTON
+=================================== -->
+<a 
+  href="https://wa.me/5215668550117"
+  target="_blank"
+  class="whatsapp-float"
+  aria-label="Contactar por WhatsApp"
+>
+  <img src="assets/images/whatsapp.svg" alt="WhatsApp">
+</a>
 
 </body>
 </html>
+
