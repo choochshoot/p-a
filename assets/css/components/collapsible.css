@@ -13,6 +13,7 @@
   font-weight: 500;
   cursor: pointer;
   padding: 0;
+  font-size: inherit; /* 👈 importante para que no cambie tamaño */
 }
 
 .read-more-btn-inline:hover {
@@ -27,10 +28,16 @@
   max-height: 0;
   overflow: hidden;
   opacity: 0;
-  transition: max-height 0.4s ease, opacity 0.3s ease;
+
+  /* 👇 mejora suavidad */
+  transition: 
+    max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.3s ease;
+
+  will-change: max-height, opacity; /* 👈 mejora performance */
 }
 
 .collapsible-extra.open {
-  max-height: 500px; /* suficiente para tu contenido */
+  max-height: 600px; /* 👈 subimos un poco para evitar cortes */
   opacity: 1;
 }
