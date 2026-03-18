@@ -109,9 +109,9 @@
       "enabled": true,
       "id": "areas-estrategicas",
       "type": "grid-extended",
-      "title": "Áreas Estratégicas",
+      "title": "Quiénes somos",
       "menuLabel": "Estrategia",
-      "subtitle": "Especialización jurídica y fiscal de alto nivel",
+      "subtitle": "Somos un despacho especializado en servicios contables, financieros y de cumplimiento fiscal, enfocado en apoyar a empresas y personas en la correcta administración de su información financiera y en el cumplimiento oportuno de sus obligaciones tributarias.Nuestro enfoque se basa en tres pilares fundamentales:",
       "cta": {
         "text": "Solicitar Diagnóstico",
         "url": "https://wa.me/5215668550117"
@@ -119,23 +119,23 @@
       "items": [
         {
           "number": "01",
-          "title": "Planeación Fiscal Estratégica",
-          "description": "Diseño estructural corporativo orientado a eficiencia y blindaje.",
-          "icon": "assets/lotties/Establish.json",
-          "link": null
-        },
-        {
-          "number": "02",
-          "title": "Ccontaduría",
-          "description": "Auditoría y Revisoría Fiscal: Enfocada en la fiscalización de estados financieros, auditoría forense (fraude) y cumplimiento de normas de aseguramiento.",
+          "title": "Información contable confiable",
+          "description": "Ofrecemos servicios integrales de contabilidad para personas físicas y personas morales.",
           "icon": "assets/lotties/Isometricdatanalysis.json",
           "link": null
         },
         {
-          "number": "03",
-          "title": "Contabilidad Gerencial",
-          "description": "Proporcionamos herramientas de análisis para la gestión interna, presupuestos y control de costos.",
+          "number": "02",
+          "title": "Análisis financiero del negocio",
+          "description": "Apoyamos a las empresas en el desarrollo de herramientas financieras.",
           "icon": "assets/lotties/HandshakeLoop.json",
+          "link": null
+        },
+        {
+          "number": "03",
+          "title": "Cumplimiento fiscal preventivo",
+          "description": "Brindamos acompañamiento en el cumplimiento de obligaciones fiscales",
+          "icon": "assets/lotties/Establish.json",
           "link": null
         }
       ]
