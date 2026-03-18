@@ -158,7 +158,23 @@ if (section.type === "grid-extended" && section.items?.length) {
           ? `
             <ul class="premium-list">
 
-              ${visibleItems.map(item => `<li>${item.trim()}</li>`).join("")}
+              ${visibleItems.map((item, index) => {
+
+                // 👉 último item visible → agrega "Leer más" inline
+                if (index === visibleItems.length - 1 && isCollapsible) {
+                  return `
+                    <li>
+                      ${item.trim()}
+                      <span class="read-more-inline">
+                        ...
+                        <button class="read-more-btn-inline">Leer más</button>
+                      </span>
+                    </li>
+                  `;
+                }
+
+                return `<li>${item.trim()}</li>`;
+              }).join("")}
 
               ${isCollapsible ? `
                 <div class="collapsible-extra hidden">
@@ -167,10 +183,6 @@ if (section.type === "grid-extended" && section.items?.length) {
               ` : ""}
 
             </ul>
-
-            ${isCollapsible ? `
-              <button class="read-more-btn">Leer más</button>
-            ` : ""}
           `
           : "";
 
@@ -448,7 +460,32 @@ function initMenuBehavior() {
 }
 
 
+/* ===================================
+   READ MORE (COLLAPSIBLE UX)
+=================================== */
 
+function initReadMore() {
+  document.querySelectorAll(".read-more-btn-inline").forEach(btn => {
+
+    btn.addEventListener("click", () => {
+
+      const list = btn.closest(".premium-list");
+      const extra = list.querySelector(".collapsible-extra");
+
+      if (!extra) return;
+
+      extra.classList.toggle("open");
+
+      if (!extra.classList.contains("open")) {
+        btn.textContent = "Leer más";
+      } else {
+        btn.textContent = "Ver menos";
+      }
+
+    });
+
+  });
+}
 
 /* ===================================
    INITIALIZE UI (Modular Boot)

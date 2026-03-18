@@ -1,0 +1,36 @@
+/* ===================================
+   COLLAPSIBLE (READ MORE)
+=================================== */
+
+.read-more-inline {
+  margin-left: 6px;
+}
+
+.read-more-btn-inline {
+  background: none;
+  border: none;
+  color: #4fc3f7;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+}
+
+.read-more-btn-inline:hover {
+  text-decoration: underline;
+}
+
+/* ===================================
+   COLLAPSIBLE ANIMATION (PREMIUM)
+=================================== */
+
+.collapsible-extra {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+}
+
+.collapsible-extra.open {
+  max-height: 500px; /* suficiente para tu contenido */
+  opacity: 1;
+}
