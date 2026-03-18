@@ -38,6 +38,11 @@ function renderHero(hero) {
 
 function renderGridExtended(section) {
 
+
+  if (!section.items) {
+    console.warn("⚠️ grid-extended sin items:", section);
+  }
+  
   return `
     <section id="${section.id}" class="grid-extended-section">
       <div class="container">
@@ -55,7 +60,7 @@ function renderGridExtended(section) {
         </div>
 
         <div class="grid-extended-container">
-          ${section.items.map(item => `
+          ${(section.items || []).map(item => `
             <article class="grid-extended-card reveal">
 
               <span class="grid-extended-number">
@@ -84,8 +89,42 @@ function renderGridExtended(section) {
   `;
 }
 
+
+
+function renderGrid(section) {
+
+  // 🧠 DEBUG opcional
+  if (!section.items) {
+    console.warn("⚠️ GRID sin items:", section);
+  }
+
+  return `
+    <section id="${section.id}" class="grid-section">
+      <div class="container">
+        <h2 class="reveal">${safe(section.title)}</h2>
+        <p class="reveal">${safe(section.text)}</p>
+
+        <div class="grid-container">
+          ${(section.items || []).map(item => `
+            <div class="grid-card reveal">
+              <div class="lottie-icon" 
+                  data-path="${item.lottie}"
+                  data-autoplay="true"
+                  data-loop="false">
+              </div>
+              <h3>${safe(item.title)}</h3>
+              <p>${safe(item.text)}</p>
+            </div>
+          `).join("")}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
 const sectionRenderers = {
-  "grid-extended": renderGridExtended
+  "grid-extended": renderGridExtended,
+  "grid": renderGrid
 };
 
 /* ===================================
@@ -110,53 +149,20 @@ function renderSections(sections, contact) {
         return;
       }
 
+      // 👇 DEBUG (AGREGAR ESTO)
+      if (!sectionRenderers[section.type]) {
+        console.warn(`⚠️ No renderer for type: ${section.type}`);
+      }
+
       // 🧱 LEGACY FALLBACK (todo lo demás sigue igual)
       let contentHTML = "";
 
-
-
-      /* ===================================
-        GRID TYPE (Nuevo soporte)
-      =================================== */
-
-      // 🧠 DEBUG (antes del if)
-      if (section.type === "grid" && !section.items) {
-        console.warn("⚠️ GRID sin items:", section);
-      }
-
-      if (section.type === "grid" && section.items?.length) {
-
-        container.innerHTML += `
-          <section id="${section.id}" class="grid-section">
-            <div class="container">
-              <h2 class="reveal">${safe(section.title)}</h2>
-              <p class="reveal">${safe(section.text)}</p>
-
-              <div class="grid-container">
-                ${(section.items || []).map(item => `
-                  <div class="grid-card reveal">
-                    <div class="lottie-icon" 
-                        data-path="${item.lottie}"
-                        data-autoplay="true"
-                        data-loop="false">
-                    </div>
-                    <h3>${safe(item.title)}</h3>
-                    <p>${safe(item.text)}</p>
-                  </div>
-                `).join("")}
-              </div>
-            </div>
-          </section>
-        `;
-
-        return;
-      }      
+     
 
       /* ===================================
         TEXTO LISTADO PREMIUM
       =================================== */
-      else {
-
+      
         const MAX_ITEMS = 3;
 
         let listItems = section.text
@@ -238,7 +244,7 @@ function renderSections(sections, contact) {
             </div>
           </div>
         `;
-      }
+      
       
       /* ===================================
          MAPA
