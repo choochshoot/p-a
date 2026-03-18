@@ -29,11 +29,60 @@
   "sections": [
     {
       "enabled": true,
+      "id": "quienes-somos",
+      "type": "default",
+      "title": "Quiénes somos",
+      "text": "Somos un despacho especializado en servicios contables, financieros y de cumplimiento fiscal, enfocado en apoyar a empresas y personas en la correcta administración de su información financiera y en el cumplimiento oportuno de sus obligaciones tributarias.",
+      "map": false,
+      "cta": null,
+      "image": "assets/images/servicio-fiscal2.webp",
+      "quote": {
+        "text": "Se analiza de manera continua la información generada por la empresa para verificar su consistencia y detectar posibles áreas de mejora.",
+        "author": "Pulido Asesores"
+      }
+    },
+    {
+      "enabled": true,
+      "id": "areas-estrategicas",
+      "type": "grid-extended",
+      "title": "Nuestro enfoque se basa en tres pilares fundamentales:",
+      "menuLabel": "Estrategia",
+      "subtitle": "A través de una revisión técnica y acompañamiento permanente, buscamos que nuestros clientes cuenten con información clara para la toma de decisiones y una estructura administrativa sólida.",
+      "cta": {
+        "text": "Solicitar Diagnóstico",
+        "url": "https://wa.me/5215668550117"
+      },
+      "items": [
+        {
+          "number": "01",
+          "title": "Información contable confiable",
+          "description": "Ofrecemos servicios integrales de contabilidad para personas físicas y personas morales.",
+          "icon": "assets/lotties/Isometricdatanalysis.json",
+          "link": null
+        },
+        {
+          "number": "02",
+          "title": "Análisis financiero del negocio",
+          "description": "Apoyamos a las empresas en el desarrollo de herramientas financieras.",
+          "icon": "assets/lotties/HandshakeLoop.json",
+          "link": null
+        },
+        {
+          "number": "03",
+          "title": "Cumplimiento fiscal preventivo",
+          "description": "Brindamos acompañamiento en el cumplimiento de obligaciones fiscales",
+          "icon": "assets/lotties/Establish.json",
+          "link": null
+        }
+      ]
+    },
+    {
+      "enabled": true,
       "id": "nuestroservicios",
       "type": "default",
-      "title": "Nuestros Servicios",
+      "title": "Servicio de Auditoría Contable y Financiera",
       "menuLabel": "Servicios",
-      "text": "Impuestos corporativos y estrategia fiscal empresarial\nRevisión y seguimiento de cumplimiento fiscal\nPrecios de transferencia\nFusiones y escisiones de empresas (M&A y Due diligences)\nSeguridad social y servicios fiscales en remuneraciones\nComercio Exterior, internacional y aduanas\nOtros servicios legales, fiscales, tributarios e impositivos",
+      "text": "Realizamos revisiones especializadas de la información contable y financiera con el objetivo de evaluar la razonabilidad de la información financiera y fortalecer los controles internos de la organización.\nLos trabajos de auditoría pueden incluir:\n\n•Revisión de registros contables.\n•Evaluación de procesos administrativos y financieros.\n•Identificación de inconsistencias contables.\n•Evaluación de controles internos.\n•Recomendaciones para mejorar los procesos financieros.\n\nEste servicio permite a las empresas identificar áreas de mejora y fortalecer su estructura administrativa y financiera.",
       "map": false,
       "cta": null,
       "image": "assets/images/servicio-fiscal2.webp",
@@ -41,6 +90,21 @@
         "text": "Análisis, control y cercanía para fortalecer decisiones financieras.",
         "author": "Pulido "
       }
+    },
+    {
+      "enabled": true,
+      "id": "especialistas",
+      "type": "default",
+      "title": "Servicios Contables",
+      "menuLabel": "Especialistas",
+      "text": "Ofrecemos servicios integrales de contabilidad para personas físicas y personas morales, orientados a mantener registros contables confiables y en cumplimiento con las disposiciones fiscales vigentes.\nLos servicios incluyen:\n\nRegistro y clasificación contable de operaciones.\nElaboración de estados financieros.\nConciliaciones bancarias.\nControl y revisión de auxiliares contables.\nIntegración y resguardo de documentación contable.\nPreparación de información financiera para la toma de decisiones.\n\nNuestro objetivo es que la contabilidad refleje de manera fiel la realidad financiera de las operaciones del cliente.",
+      "map": false,
+      "cta": {
+        "text": "Agendar Cita",
+        "url": "https://wa.me/5215668550117?text=Me%20interesa%20agendar%20una%20cita"
+      },
+      "image": "assets/images/servicio-fiscal3.webp",
+      "quote": null
     },
     {
       "enabled": true,
@@ -78,25 +142,10 @@
     },
     {
       "enabled": true,
-      "id": "especialistas",
-      "type": "default",
-      "title": "Especialistas en Derecho Fiscal, Auditoría y Servicios Contables",
-      "menuLabel": "Especialistas",
-      "text": "Derecho Fiscal (planeación, litigio, cumplimiento)\nAuditoría (financiera, fiscal, preventiva)\nContabilidad (corriente, electrónica, declaraciones)",
-      "map": false,
-      "cta": {
-        "text": "Agendar Cita",
-        "url": "https://wa.me/5215668550117?text=Me%20interesa%20agendar%20una%20cita"
-      },
-      "image": "assets/images/servicio-fiscal3.webp",
-      "quote": null
-    },
-    {
-      "enabled": true,
       "id": "fundadorgp",
       "type": "default",
-      "title": "Nuestro Fundador",
-      "text": "Con más de 50 años de trayectoria transformando números en decisiones estratégicas, el C.P. Juan Gilberto Pulido Díaz lidera nuestra área contable con la precisión de quien entiende que detrás de cada estado financiero hay una historia de crecimiento esperando ser contada.\nSu formación académica en la Escuela Superior de Comercio y Administración del IPN y la Maestría en Negocios de la UNAM se complementa con una visión global forjada en los programas de Liderazgo Situacional y Retail Management Excellence de Volkswagen Academy, espacios exclusivos para directivos de alto nivel.\nDe la docencia a la práctica empresarial\nPor más de 50 años ha compartido su conocimiento como profesor de Contabilidad y Análisis Financiero en instituciones de prestigio como la Escuela Bancaria y Comercial, la UNAM y el IPN. Esta dualidad —academia y campo— le otorga una perspectiva única: explica con claridad lo que otros complican, y ejecuta con solidez lo que otros solo teorizan.\nUn recorrido que abarca toda la cadena de valor\nSu experiencia abarca desde el despacho fiscal hasta la dirección general, pasando por puestos estratégicos como Contralor, Gerente de Finanzas y Gerente General en empresas de retail, servicios, industria y comercio. Ha diseñado e implementado sistemas contables, financieros y comerciales, liderado auditorías financieras y operativas, y orientado proyectos de crecimiento con resultados medibles.\n\"La contabilidad bien ejecutada no es un costo: es la brújula que permite navegar con certeza en cualquier entorno económico.\"\n¿Por qué confiar en su asesoría?\nPorque ha estado del otro lado: ha firmado estados financieros, ha enfrentado auditorías, ha tomado decisiones que determinan el rumbo de empresas. Entiende la presión del empresario porque la ha vivido. Y traduce ese entendimiento en estrategias fiscales sólidas, cumplimiento tranquilo y oportunidades de optimización real.",
+      "title": "Socio Fundador-Juan Gilberto Pulido Díaz",
+      "text": "Contador Público egresado de la Escuela Superior de Comercio y Administración del Instituto Politécnico Nacional, con estudios de Maestría en Negocios por la Universidad Nacional Autónoma de México.\nCuenta con 49 años de experiencia profesional en las áreas contable, financiera y administrativa, durante los cuales ha participado en la gestión, dirección y supervisión financiera de diversas organizaciones.\nA lo largo de su trayectoria ha ocupado posiciones directivas como:\n•Contador General\n•Contralor General\n•Gerente de Finanzas\n•Gerente General\nSu experiencia profesional abarca proyectos relacionados con:\n•Desarrollo e implementación de sistemas contables y administrativos.\n•Auditoría contable y financiera.\n•Planeación y control financiero.\n•Optimización de procesos administrativos.\n•Evaluación financiera y toma de decisiones estratégicas.\nAdicionalmente, ha desarrollado una destacada actividad académica como profesor en diversas instituciones de educación superior, impartiendo materias relacionadas con contabilidad, finanzas y análisis financiero.\nEntre las instituciones en las que ha participado como docente se encuentran:\n•Instituto Politécnico Nacional\n•Universidad Nacional Autónoma de México\n•Escuela Bancaria y Comercial\nSu trayectoria combina experiencia técnica, visión financiera del negocio y liderazgo administrativo, lo que permite aportar a los clientes del despacho una perspectiva integral en la gestión de su información financiera.",
       "map": false,
       "cta": null,
       "image": "assets/images/fundador.jpg",
@@ -104,41 +153,6 @@
         "text": "La contabilidad bien ejecutada no es un costo: es la brújula que permite navegar con certeza en cualquier entorno económico",
         "author": "Gilberto Pulido"
       }
-    },
-    {
-      "enabled": true,
-      "id": "areas-estrategicas",
-      "type": "grid-extended",
-      "title": "Quiénes somos",
-      "menuLabel": "Estrategia",
-      "subtitle": "Somos un despacho especializado en servicios contables, financieros y de cumplimiento fiscal, enfocado en apoyar a empresas y personas en la correcta administración de su información financiera y en el cumplimiento oportuno de sus obligaciones tributarias.Nuestro enfoque se basa en tres pilares fundamentales:",
-      "cta": {
-        "text": "Solicitar Diagnóstico",
-        "url": "https://wa.me/5215668550117"
-      },
-      "items": [
-        {
-          "number": "01",
-          "title": "Información contable confiable",
-          "description": "Ofrecemos servicios integrales de contabilidad para personas físicas y personas morales.",
-          "icon": "assets/lotties/Isometricdatanalysis.json",
-          "link": null
-        },
-        {
-          "number": "02",
-          "title": "Análisis financiero del negocio",
-          "description": "Apoyamos a las empresas en el desarrollo de herramientas financieras.",
-          "icon": "assets/lotties/HandshakeLoop.json",
-          "link": null
-        },
-        {
-          "number": "03",
-          "title": "Cumplimiento fiscal preventivo",
-          "description": "Brindamos acompañamiento en el cumplimiento de obligaciones fiscales",
-          "icon": "assets/lotties/Establish.json",
-          "link": null
-        }
-      ]
     },
     {
       "enabled": true,
