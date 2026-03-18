@@ -29,15 +29,13 @@
   overflow: hidden;
   opacity: 0;
 
-  /* 👇 mejora suavidad */
-  transition: 
+  transition:
     max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1),
     opacity 0.3s ease;
 
-  will-change: max-height, opacity; /* 👈 mejora performance */
+  will-change: max-height, opacity;
 }
 
 .collapsible-extra.open {
-  max-height: 600px; /* 👈 subimos un poco para evitar cortes */
   opacity: 1;
 }

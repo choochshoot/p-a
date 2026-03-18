@@ -33,27 +33,12 @@ function renderHero(hero) {
 }
 
 /* ===================================
-   SECTIONS
+   RENDER REGISTRY (NEW CORE)
 =================================== */
 
-function renderSections(sections, contact) {
-  const container = document.getElementById("dynamicContent");
-  if (!container) return;
+function renderGridExtended(section) {
 
-  container.innerHTML = "";
-
-  sections
-    .filter(section => section.enabled)
-    .forEach(section => {
-
-      let contentHTML = "";
-
-/* ===================================
-   GRID EXTENDED (Institucional Premium)
-=================================== */
-if (section.type === "grid-extended" && section.items?.length) {
-
-  container.innerHTML += `
+  return `
     <section id="${section.id}" class="grid-extended-section">
       <div class="container">
 
@@ -97,12 +82,48 @@ if (section.type === "grid-extended" && section.items?.length) {
       </div>
     </section>
   `;
-  return;
 }
 
+const sectionRenderers = {
+  "grid-extended": renderGridExtended
+};
+
+/* ===================================
+   SECTIONS
+=================================== */
+
+function renderSections(sections, contact) {
+  const container = document.getElementById("dynamicContent");
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  sections
+    .filter(section => section.enabled)
+    .forEach(section => {
+
+      // 🧠 NEW CORE (registry)
+      const renderer = sectionRenderers[section.type];
+
+      if (renderer) {
+        container.innerHTML += renderer(section, contact);
+        return;
+      }
+
+      // 🧱 LEGACY FALLBACK (todo lo demás sigue igual)
+      let contentHTML = "";
+
+
+
       /* ===================================
-         GRID TYPE (Nuevo soporte)
+        GRID TYPE (Nuevo soporte)
       =================================== */
+
+      // 🧠 DEBUG (antes del if)
+      if (section.type === "grid" && !section.items) {
+        console.warn("⚠️ GRID sin items:", section);
+      }
+
       if (section.type === "grid" && section.items?.length) {
 
         container.innerHTML += `
@@ -112,7 +133,7 @@ if (section.type === "grid-extended" && section.items?.length) {
               <p class="reveal">${safe(section.text)}</p>
 
               <div class="grid-container">
-                ${section.items.map(item => `
+                ${(section.items || []).map(item => `
                   <div class="grid-card reveal">
                     <div class="lottie-icon" 
                         data-path="${item.lottie}"
@@ -129,7 +150,7 @@ if (section.type === "grid-extended" && section.items?.length) {
         `;
 
         return;
-      }
+      }      
 
       /* ===================================
         TEXTO LISTADO PREMIUM
@@ -474,11 +495,16 @@ function initReadMore() {
 
       if (!extra) return;
 
-      extra.classList.toggle("open");
-
-      if (!extra.classList.contains("open")) {
+      if (extra.classList.contains("open")) {
+        // 🔽 CONTRAER
+        extra.style.maxHeight = null;
+        extra.classList.remove("open");
         btn.textContent = "Leer más";
+
       } else {
+        // 🔼 EXPANDIR
+        extra.classList.add("open");
+        extra.style.maxHeight = extra.scrollHeight + "px";
         btn.textContent = "Ver menos";
       }
 
