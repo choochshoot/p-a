@@ -136,15 +136,41 @@ if (section.type === "grid-extended" && section.items?.length) {
       =================================== */
       else {
 
-        const listHTML = section.text
+        const MAX_ITEMS = 3;
+
+        let listItems = section.text
+          ? section.text
+              .split("\n")
+              .filter(item => item.trim() !== "")
+          : [];
+
+        let isCollapsible = listItems.length > MAX_ITEMS;
+
+        let visibleItems = isCollapsible
+          ? listItems.slice(0, MAX_ITEMS)
+          : listItems;
+
+        let hiddenItems = isCollapsible
+          ? listItems.slice(MAX_ITEMS)
+          : [];
+
+        const listHTML = listItems.length
           ? `
             <ul class="premium-list">
-              ${section.text
-                .split("\n")
-                .filter(item => item.trim() !== "")
-                .map(item => `<li>${item.trim()}</li>`)
-                .join("")}
+
+              ${visibleItems.map(item => `<li>${item.trim()}</li>`).join("")}
+
+              ${isCollapsible ? `
+                <div class="collapsible-extra hidden">
+                  ${hiddenItems.map(item => `<li>${item.trim()}</li>`).join("")}
+                </div>
+              ` : ""}
+
             </ul>
+
+            ${isCollapsible ? `
+              <button class="read-more-btn">Leer más</button>
+            ` : ""}
           `
           : "";
 
@@ -430,13 +456,15 @@ function initMenuBehavior() {
 
 function initializeUI(data) {
   renderHero(data.hero);
+  renderMenu(data.sections); // 👈 IMPORTANTE
   renderSections(data.sections, data.contact);
   renderFooter(data.contact);
 
-  if (typeof initLotties === "function") initLotties();
+  // ❌ NO repetir initLotties aquí
 
   activateReveal();
   activatePrivacyModal();
+  initReadMore(); // 👈 UX collapsible
 }
 
 /* ===================================
@@ -466,17 +494,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       document.getElementById("ogUrl").setAttribute("content", data.meta.url || "");
     }
 
-    renderHero(data.hero);
-    renderMenu(data.sections); // 👈 Ya llama initMenuBehavior internamente
-    renderSections(data.sections, data.contact);
-    renderFooter(data.contact);
-
-    if (typeof initLotties === "function") {
-      initLotties();
-    }
-
-    activateReveal();
-    activatePrivacyModal();
+    initializeUI(data); // 👈 TODO centralizado
 
   } catch (error) {
     console.error("Error loading content:", error);
