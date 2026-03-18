@@ -177,7 +177,7 @@ if (section.type === "grid-extended" && section.items?.length) {
               }).join("")}
 
               ${isCollapsible ? `
-                <div class="collapsible-extra hidden">
+                <div class="collapsible-extra">
                   ${hiddenItems.map(item => `<li>${item.trim()}</li>`).join("")}
                 </div>
               ` : ""}
