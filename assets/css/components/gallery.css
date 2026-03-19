@@ -19,3 +19,13 @@
   border-radius: 12px;
   object-fit: cover;
 }
+
+/* ===================================
+   GALLERY → MOBILE HIDE
+=================================== */
+
+@media (max-width: 768px) {
+  .section-gallery {
+    display: none !important;
+  }
+}
