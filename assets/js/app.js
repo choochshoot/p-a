@@ -122,178 +122,159 @@ function renderGrid(section) {
   `;
 }
 
-const sectionRenderers = {
-  "grid-extended": renderGridExtended,
-  "grid": renderGrid
-};
+function renderDefault(section, contact) {
 
-/* ===================================
-   SECTIONS
-=================================== */
+  const MAX_ITEMS = 3;
 
-function renderSections(sections, contact) {
-  const container = document.getElementById("dynamicContent");
-  if (!container) return;
+  let listItems = section.text
+    ? section.text
+        .split("\n")
+        .filter(item => item.trim() !== "")
+    : [];
 
-  container.innerHTML = "";
+  let isCollapsible = listItems.length > MAX_ITEMS;
 
-  sections
-    .filter(section => section.enabled)
-    .forEach(section => {
+  let visibleItems = isCollapsible
+    ? listItems.slice(0, MAX_ITEMS)
+    : listItems;
 
-      // 🧠 NEW CORE (registry)
-      const renderer = sectionRenderers[section.type];
+  let hiddenItems = isCollapsible
+    ? listItems.slice(MAX_ITEMS)
+    : [];
 
-      if (renderer) {
-        container.innerHTML += renderer(section, contact);
-        return;
-      }
+  const listHTML = listItems.length
+    ? `
+      <ul class="premium-list">
 
-      // 👇 DEBUG (AGREGAR ESTO)
-      if (!sectionRenderers[section.type]) {
-        console.warn(`⚠️ No renderer for type: ${section.type}`);
-      }
+        ${visibleItems.map((item, index) => {
 
-      // 🧱 LEGACY FALLBACK (todo lo demás sigue igual)
-      let contentHTML = "";
+          if (index === visibleItems.length - 1 && isCollapsible) {
+            return `
+              <li>
+                ${item.trim()}
+                <span class="read-more-inline">
+                  ...
+                  <button class="read-more-btn-inline">Leer más</button>
+                </span>
+              </li>
+            `;
+          }
 
-     
+          return `<li>${item.trim()}</li>`;
+        }).join("")}
 
-      /* ===================================
-        TEXTO LISTADO PREMIUM
-      =================================== */
-      
-        const MAX_ITEMS = 3;
-
-        let listItems = section.text
-          ? section.text
-              .split("\n")
-              .filter(item => item.trim() !== "")
-          : [];
-
-        let isCollapsible = listItems.length > MAX_ITEMS;
-
-        let visibleItems = isCollapsible
-          ? listItems.slice(0, MAX_ITEMS)
-          : listItems;
-
-        let hiddenItems = isCollapsible
-          ? listItems.slice(MAX_ITEMS)
-          : [];
-
-        const listHTML = listItems.length
-          ? `
-            <ul class="premium-list">
-
-              ${visibleItems.map((item, index) => {
-
-                // 👉 último item visible → agrega "Leer más" inline
-                if (index === visibleItems.length - 1 && isCollapsible) {
-                  return `
-                    <li>
-                      ${item.trim()}
-                      <span class="read-more-inline">
-                        ...
-                        <button class="read-more-btn-inline">Leer más</button>
-                      </span>
-                    </li>
-                  `;
-                }
-
-                return `<li>${item.trim()}</li>`;
-              }).join("")}
-
-              ${isCollapsible ? `
-                <div class="collapsible-extra">
-                  ${hiddenItems.map(item => `<li>${item.trim()}</li>`).join("")}
-                </div>
-              ` : ""}
-
-            </ul>
-          `
-          : "";
-
-        const imageHTML = section.image
-          ? `
-            <div class="section-media reveal reveal-left">
-              <img 
-                src="${section.image}" 
-                loading="lazy"
-                decoding="async"
-                alt="${safe(section.title)}"
-              >
-            </div>
-          `
-          : "";
-
-        const quoteHTML = section.quote?.text
-          ? `
-            <blockquote class="section-quote">
-              <p>"${section.quote.text}"</p>
-              ${section.quote.author ? `<span>- ${section.quote.author}</span>` : ""}
-            </blockquote>
-          `
-          : "";
-
-        contentHTML = `
-          <div class="section-layout">
-            ${imageHTML}
-            <div class="section-content reveal reveal-right">
-              ${listHTML}
-              ${quoteHTML}
-            </div>
+        ${isCollapsible ? `
+          <div class="collapsible-extra">
+            ${hiddenItems.map(item => `<li>${item.trim()}</li>`).join("")}
           </div>
-        `;
-      
-      
-      /* ===================================
-         MAPA
-      =================================== */
-      const mapHTML = (section.map && contact?.mapEmbed)
-        ? `
-          <div class="map-container reveal">
-            <iframe
-              src="${contact.mapEmbed}"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+        ` : ""}
+
+      </ul>
+    `
+    : "";
+
+  const imageHTML = section.image
+    ? `
+      <div class="section-media reveal reveal-left">
+        <img 
+          src="${section.image}" 
+          loading="lazy"
+          decoding="async"
+          alt="${safe(section.title)}"
+        >
+      </div>
+    `
+    : "";
+
+  const quoteHTML = section.quote?.text
+    ? `
+      <blockquote class="section-quote">
+        <p>"${section.quote.text}"</p>
+        ${section.quote.author ? `<span>- ${section.quote.author}</span>` : ""}
+      </blockquote>
+    `
+    : "";
+
+  const mapHTML = (section.map && contact?.mapEmbed)
+    ? `
+      <div class="map-container reveal">
+        <iframe
+          src="${contact.mapEmbed}"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    `
+    : "";
+
+  const ctaHTML = section.cta
+    ? `
+      <div class="section-cta reveal">
+        <a href="${section.cta.url}" class="btn">
+          ${section.cta.text}
+        </a>
+      </div>
+    `
+    : "";
+
+  return `
+    <section id="${section.id}">
+      <div class="container card card-reveal">
+        <h2>${safe(section.title)}</h2>
+
+        <div class="section-layout">
+          ${imageHTML}
+          <div class="section-content reveal reveal-right">
+            ${listHTML}
+            ${quoteHTML}
           </div>
-        `
-        : "";
+        </div>
 
-      /* ===================================
-         CTA
-      =================================== */
-      const ctaHTML = section.cta
-        ? `
-          <div class="section-cta reveal">
-            <a href="${section.cta.url}" class="btn">
-              ${section.cta.text}
-            </a>
-          </div>
-        `
-        : "";
-
-      container.innerHTML += `
-        <section id="${section.id}">
-          <div class="container card card-reveal">
-            <h2>${safe(section.title)}</h2>
-
-            ${section.type !== "grid" ? contentHTML : ""}
-
-            ${section.type === "grid" ? contentHTML : ""}
-
-            ${mapHTML}
-            ${ctaHTML}
-          </div>
-        </section>
-      `;
-    });
-
-  // IMPORTANTE:
-  initLotties();
+        ${mapHTML}
+        ${ctaHTML}
+      </div>
+    </section>
+  `;
 }
 
+const sectionRenderers = {
+  "grid-extended": renderGridExtended,
+  "grid": renderGrid,
+  "default": renderDefault
+};
+
+      /* ===================================
+        SECTIONS
+      =================================== */
+
+      function renderSections(sections, contact) {
+        const container = document.getElementById("dynamicContent");
+        if (!container) return;
+
+        container.innerHTML = "";
+
+        sections
+          .filter(section => section.enabled)
+          .forEach(section => {
+
+            // 🧠 NEW CORE (registry)
+            const renderer = sectionRenderers[section.type];
+
+            if (renderer) {
+              container.innerHTML += renderer(section, contact);
+              return;
+            }
+
+            // ⚠️ fallback controlado (solo log)
+            console.warn(`⚠️ No renderer for type: ${section.type}`);
+
+          });
+
+        // IMPORTANTE:
+        initLotties();
+      }
+
+          
 
 /* ===================================
    FOOTER
