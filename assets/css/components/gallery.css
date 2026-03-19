@@ -1,0 +1,21 @@
+/* ===================================
+   GALLERY (DEFAULT SECTIONS)
+=================================== */
+
+.section-gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+
+  transition: all 0.4s ease;
+}
+
+.section-gallery img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}

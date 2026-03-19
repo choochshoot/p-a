@@ -173,6 +173,16 @@ function renderDefault(section, contact) {
     `
     : "";
 
+  const galleryHTML = section.gallery?.length
+    ? `
+      <div class="section-gallery">
+        ${section.gallery.map(img => `
+          <img src="${img}" loading="lazy" />
+        `).join("")}
+      </div>
+    `
+    : "";
+
   const imageHTML = section.image
     ? `
       <div class="section-media reveal reveal-left">
@@ -182,9 +192,11 @@ function renderDefault(section, contact) {
           decoding="async"
           alt="${safe(section.title)}"
         >
+
+        ${galleryHTML}
       </div>
     `
-    : "";
+    : "";  
 
   const quoteHTML = section.quote?.text
     ? `
@@ -478,21 +490,44 @@ function initReadMore() {
     btn.addEventListener("click", () => {
 
       const list = btn.closest(".premium-list");
-      const extra = list.querySelector(".collapsible-extra");
+      const extra = list?.querySelector(".collapsible-extra");
+      
 
-      if (!extra) return;
+      if (!list || !extra) return;
+
+      // 🔥 NUEVO (aquí está la clave)
+      const section = btn.closest("section");
+      const media = section.querySelector(".section-media");
+      const gallery = media ? media.querySelector(".section-gallery") : null;
 
       if (extra.classList.contains("open")) {
+
         // 🔽 CONTRAER
         extra.style.maxHeight = null;
         extra.classList.remove("open");
         btn.textContent = "Leer más";
 
+        // 🔽 OCULTAR GALERÍA
+        if (gallery) {
+          gallery.style.maxHeight = null;
+          gallery.style.opacity = 0;
+        }
+
       } else {
-        // 🔼 EXPANDIR
+
+        // 🔼 EXPANDIR TEXTO
         extra.classList.add("open");
         extra.style.maxHeight = extra.scrollHeight + "px";
         btn.textContent = "Ver menos";
+
+        // 🔼 MOSTRAR GALERÍA
+        if (gallery) {
+          gallery.style.maxHeight = gallery.scrollHeight + "px";
+          gallery.style.opacity = 1;
+        }
+
+        // 🔥 opcional (UX pro)
+        section.scrollIntoView({ behavior: "smooth", block: "center" });
       }
 
     });
