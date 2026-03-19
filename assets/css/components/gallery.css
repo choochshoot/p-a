@@ -5,27 +5,52 @@
 .section-gallery {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 12px;
+  gap: 1rem;
+
+  margin-top: 1.5rem; /* 🔥 separación de imagen principal */
 
   max-height: 0;
   overflow: hidden;
   opacity: 0;
 
-  transition: all 0.4s ease;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  will-change: max-height, opacity;
 }
+
+/* ===================================
+   GALLERY IMAGES
+=================================== */
 
 .section-gallery img {
   width: 100%;
   border-radius: 12px;
   object-fit: cover;
+
+  transition: transform 0.3s ease;
+}
+
+.section-gallery img:hover {
+  transform: scale(1.03); /* 🔥 micro interacción premium */
 }
 
 /* ===================================
-   GALLERY → MOBILE HIDE
+   DESKTOP GRID (2 columnas)
+=================================== */
+
+@media (min-width: 1024px) {
+  .section-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ===================================
+   MOBILE → HIDE GALLERY
 =================================== */
 
 @media (max-width: 768px) {
   .section-gallery {
     display: none !important;
+    max-height: 0 !important;
+    opacity: 0 !important;
   }
 }
