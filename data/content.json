@@ -142,6 +142,20 @@
     },
     {
       "enabled": true,
+      "id": "enfoque",
+      "type": "default",
+      "title": "Enfoque",
+      "text": "El despacho busca convertirse en un aliado estratégico de empresas y emprendedores, proporcionando servicios que contribuyan a:\nFortalecer la administración financiera del negocio.\nMantener una contabilidad confiable.\nAsegurar el cumplimiento oportuno de obligaciones fiscales.\nTodo ello con un enfoque basado en orden, prevención y generación de información útil para la toma de decisiones.",
+      "map": false,
+      "cta": null,
+      "image": "assets/images/servicio-fiscal5.webp",
+      "quote": {
+        "text": "El enfoque del despacho es preventivo, buscando que los contribuyentes mantengan una situación fiscal ordenada y alineada con la normativa vigente.",
+        "author": "C.P Gilberto Pulido"
+      }
+    },
+    {
+      "enabled": true,
       "id": "fundadorgp",
       "type": "default",
       "title": "Socio Fundador-Juan Gilberto Pulido Díaz",
