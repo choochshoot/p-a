@@ -110,9 +110,9 @@
       "enabled": true,
       "id": "4peldanos",
       "type": "grid",
-      "title": "Áreas Especializadas",
+      "title": "Cumplimiento Fiscal",
       "menuLabel": "Áreas",
-      "text": "Fusiones y escisiones de empresas (M&A y Due diligences)\nSeguridad social y servicios fiscales en remuneraciones\nComercio Exterior, internacional y aduanas\nOtros servicios legales, fiscales, tributarios e impositivos",
+      "text": "Brindamos acompañamiento en el cumplimiento de obligaciones fiscales, asegurando que las declaraciones y determinaciones de impuestos se realicen de manera correcta y oportuna.\nEste servicio contempla:",
       "map": false,
       "cta": null,
       "image": null,
@@ -121,22 +121,22 @@
         {
           "lottie": "assets/lotties/Establish.json",
           "title": "Consultoría",
-          "text": "Consultoría Corporativa, orientadas a optimizar recursos y evitar sanciones"
+          "text": "Apoyo en la atención de requerimientos administrativos de autoridades fiscales."
         },
         {
           "lottie": "assets/lotties/Gavel.json",
-          "title": "Auditoría",
-          "text": "Auditoría preventiva y de cumplimiento interna/externa"
+          "title": "Auditoría ",
+          "text": "Revisión del correcto cumplimiento de obligaciones fiscales."
         },
         {
           "lottie": "assets/lotties/Submitted.json",
-          "title": "Administración",
-          "text": "Administración de nómina y obligaciones patronales"
+          "title": "Declaraciones",
+          "text": "Preparación y presentación de declaraciones mensuales y anuales/Determinación de impuestos federales."
         },
         {
           "lottie": "assets/lotties/Withdraw.json",
-          "title": "Contabilidad",
-          "text": "Contabilidad electrónica y fiscal"
+          "title": "Prevención",
+          "text": "Identificación preventiva de posibles riesgos fiscales."
         }
       ]
     },
