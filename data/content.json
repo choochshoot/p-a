@@ -12,7 +12,7 @@
     "whatsapp": "5563191283",
     "email": "gpulido@palf.com.mx",
     "address": "CDMX Reforma 222",
-    "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.6184761185514!2d-99.16423178823796!3d19.428883740722025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff33846b3299%3A0x1fd31328356b921e!2sReforma%20222!5e0!3m2!1ses!2smx!4v1771381446267!5m2!1ses!2smx"
+    "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1882.2085089139198!2d-99.20380343331186!3d19.351087814467284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d2001084a2e79d%3A0x1a4bbd3c4f48b388!2sBlvd.%20Adolfo%20L%C3%B3pez%20Mateos%202349-Piso%204-B%2C%20Atlamaya%2C%20%C3%81lvaro%20Obreg%C3%B3n%2C%2001760%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses!2smx!4v1776912286095!5m2!1ses!2smx"
   },
   "hero": {
     "enabled": true,
@@ -178,9 +178,9 @@
       "enabled": true,
       "id": "mapa",
       "type": "default",
-      "title": "Ubicación",
+      "title": "Nuestras Oficinas",
       "menuLabel": "Ubicación",
-      "text": "Nuestras oficinas",
+      "text": "Blvd. Adolfo Lopez Mateos #2349 Piso 4, INT-B Col. Atlamaya, Alcaldia Alvaro Obregon, CP 01760 CDMX",
       "map": true,
       "cta": null,
       "image": null,
