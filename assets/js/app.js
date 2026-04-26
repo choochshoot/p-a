@@ -567,6 +567,49 @@ function initReadMore() {
 }
 
 /* ===================================
+   SCROLL SPY (DESKTOP ONLY)
+=================================== */
+
+function initScrollSpy() {
+
+  // 👇 solo desktop
+  if (window.innerWidth < 1024) return;
+
+  const sections = document.querySelectorAll("section[id]");
+  const menuLinks = document.querySelectorAll(".menu-list a");
+
+  if (!sections.length || !menuLinks.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+
+        if (entry.isIntersecting) {
+
+          // quitar active
+          menuLinks.forEach(link => link.classList.remove("active"));
+
+          const id = entry.target.getAttribute("id");
+
+          const activeLink = document.querySelector(`.menu-list a[href="#${id}"]`);
+
+          if (activeLink) {
+            activeLink.classList.add("active");
+          }
+
+        }
+
+      });
+    },
+    {
+     rootMargin: "-120px 0px -50% 0px"
+    }
+  );
+
+  sections.forEach(section => observer.observe(section));
+}
+
+/* ===================================
    INITIALIZE UI (Modular Boot)
 =================================== */
 
@@ -581,6 +624,8 @@ function initializeUI(data) {
   activateReveal();
   activatePrivacyModal();
   initReadMore(); // 👈 UX collapsible
+
+  initScrollSpy(); // 🔥 AQUÍ EXACTO
 }
 
 /* ===================================
@@ -627,3 +672,50 @@ window.addEventListener("scroll", () => {
 
   hero.style.backgroundPosition = `center ${window.scrollY * 0.15}px`;
 });
+
+// ===================================
+// MENU STICKY (DESKTOP UX)
+// ===================================
+
+window.addEventListener("scroll", () => {
+
+  // 🔒 solo desktop
+  if (window.innerWidth < 1024) return;
+
+  const menu = document.querySelector(".section-nav");
+  if (!menu) return;
+
+  if (window.scrollY > 80) {
+    menu.classList.add("menu-sticky");
+  } else {
+    menu.classList.remove("menu-sticky");
+  }
+
+});
+
+// ================================
+// STICKY MENU (SCROLL BEHAVIOR)
+// ================================
+
+function initStickyMenu() {
+
+  const menu = document.querySelector(".section-nav");
+
+  if (!menu) return;
+
+  window.addEventListener("scroll", () => {
+
+    // SOLO DESKTOP
+    if (window.innerWidth < 1024) return;
+
+    if (window.scrollY > 120) {
+      menu.classList.add("menu-sticky");
+    } else {
+      menu.classList.remove("menu-sticky");
+    }
+
+  });
+}
+
+// inicializar
+initStickyMenu();
