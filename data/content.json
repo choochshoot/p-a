@@ -160,7 +160,7 @@
       "type": "default",
       "title": "Socio Fundador-Juan Gilberto Pulido Díaz",
       "menuLabel": "Fundador",
-      "text": "Contador Público egresado de la Escuela Superior de Comercio y Administración del Instituto Politécnico Nacional, con estudios de Maestría en Negocios por la Universidad Nacional Autónoma de México.\nCuenta con 49 años de experiencia profesional en las áreas contable, financiera y administrativa, durante los cuales ha participado en la gestión, dirección y supervisión financiera de diversas organizaciones.\nA lo largo de su trayectoria ha ocupado posiciones directivas como:\n•Contador General\n•Contralor General\n•Gerente de Finanzas\n•Gerente General\nSu experiencia profesional abarca proyectos relacionados con:\n•Desarrollo e implementación de sistemas contables y administrativos.\n•Auditoría contable y financiera.\n•Planeación y control financiero.\n•Optimización de procesos administrativos.\n•Evaluación financiera y toma de decisiones estratégicas.\nAdicionalmente, ha desarrollado una destacada actividad académica como profesor en diversas instituciones de educación superior, impartiendo materias relacionadas con contabilidad, finanzas y análisis financiero.\nEntre las instituciones en las que ha participado como docente se encuentran:\n•Instituto Politécnico Nacional\n•Universidad Nacional Autónoma de México\n•Escuela Bancaria y Comercial\nSu trayectoria combina experiencia técnica, visión financiera del negocio y liderazgo administrativo, lo que permite aportar a los clientes del despacho una perspectiva integral en la gestión de su información financiera.",
+      "text": "Contador Público egresado de la Escuela Superior de Comercio y Administración del Instituto Politécnico Nacional, con estudios de Maestría en Negocios por la Universidad Nacional Autónoma de México.\nCuenta con 49 años de experiencia profesional en las áreas contable, financiera y administrativa, durante los cuales ha participado en la gestión, dirección y supervisión financiera de diversas organizaciones.\nA lo largo de su trayectoria ha ocupado posiciones directivas como:Contador General,Contralor General, Gerente de Finanzas, Gerente General.",
       "map": false,
       "cta": null,
       "image": "assets/images/fundador/main.jpg",
@@ -173,6 +173,44 @@
         "text": "La contabilidad bien ejecutada no es un costo: es la brújula que permite navegar con certeza en cualquier entorno económico",
         "author": "Gilberto Pulido"
       }
+    },
+    {
+      "enabled": true,
+      "id": "metodologia",
+      "type": "cards-premium",
+      "title": "49 años de Experiencia profesional",
+      "text": "Su experiencia profesional abarca proyectos relacionados con:",
+      "showInMenu": false,
+      "items": [
+        {
+            "title": "Auditoría y control financiero",
+            "text": "Experiencia en auditoría contable y financiera, así como en planeación y control financiero orientado a la transparencia y eficiencia organizacional."
+          },
+          {
+            "title": "Optimización de procesos",
+            "text": "Enfoque en la mejora continua mediante la optimización de procesos administrativos, fortaleciendo la operación interna y la toma de decisiones."
+          },
+          {
+            "title": "Estrategia financiera",
+            "text": "Evaluación financiera integral que permite una toma de decisiones estratégicas con visión de negocio y sostenibilidad a largo plazo."
+          },
+          {
+            "title": "Trayectoria académica",
+            "text": "Actividad docente en instituciones de educación superior impartiendo materias relacionadas con contabilidad, finanzas y análisis financiero."
+          },
+          {
+            "title": "Instituciones",
+            "text": "Participación como profesor en el Instituto Politécnico Nacional, Universidad Nacional Autónoma de México y Escuela Bancaria y Comercial."
+          },
+          {
+            "title": "Visión integral",
+            "text": "Combinación de experiencia técnica, visión financiera del negocio y liderazgo administrativo aplicada a cada proyecto."
+          },
+          {
+            "title": "Valor para el cliente",
+            "text": "Aporta una perspectiva integral en la gestión de la información financiera, generando confianza y soporte estratégico para la toma de decisiones."
+          }
+        ]
     },
     {
       "enabled": true,
@@ -200,24 +238,6 @@
       "cta": null,
       "image": null,
       "quote": null
-    },
-    {
-      "enabled": true,
-      "id": "metodologia",
-      "type": "cards-premium",
-      "title": "Metodología de Trabajo",
-      "text": "Nuestro enfoque se basa en un proceso estructurado orientado a resultados medibles y sostenibles.",
-      "showInMenu": false,
-      "items": [
-        { "title": "Evaluación", "text": "Evaluación de procesos administrativos y financieros." },
-        { "title": "Diagnóstico", "text": "Identificación de áreas críticas y oportunidades." },
-        { "title": "Optimización", "text": "Mejora continua de procesos internos." },
-        { "title": "Control", "text": "Implementación de controles internos sólidos." },
-        { "title": "Seguimiento", "text": "Monitoreo constante del desempeño financiero." },
-        { "title": "Resultados", "text": "Generación de valor mediante información confiable." },
-        { "title": "Estrategia", "text": "Planeación estratégica enfocada en crecimiento." },
-        { "title": "Crecimiento", "text": "Escalabilidad y desarrollo empresarial sostenible." }
-      ]
     }
-    ]
-    }
+  ]
+}

@@ -435,8 +435,12 @@ function renderMenu(sections) {
   if (!nav) return;
 
   const enabledSections = sections.filter(
-    section => section.enabled && section.id && section.title
-  );
+  section =>
+    section.enabled &&
+    section.id &&
+    section.title &&
+    section.showInMenu !== false // 🔥 ESTA ES LA CLAVE
+);
 
   nav.innerHTML = `
     <div class="menu-container">
