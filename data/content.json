@@ -199,6 +199,24 @@
       "cta": null,
       "image": null,
       "quote": null
+    },
+    {
+      "enabled": true,
+      "id": "metodologia",
+      "type": "cards-premium",
+      "title": "Metodología de Trabajo",
+      "text": "Nuestro enfoque se basa en un proceso estructurado orientado a resultados medibles y sostenibles.",
+      "showInMenu": false,
+      "items": [
+        { "title": "Evaluación", "text": "Evaluación de procesos administrativos y financieros." },
+        { "title": "Diagnóstico", "text": "Identificación de áreas críticas y oportunidades." },
+        { "title": "Optimización", "text": "Mejora continua de procesos internos." },
+        { "title": "Control", "text": "Implementación de controles internos sólidos." },
+        { "title": "Seguimiento", "text": "Monitoreo constante del desempeño financiero." },
+        { "title": "Resultados", "text": "Generación de valor mediante información confiable." },
+        { "title": "Estrategia", "text": "Planeación estratégica enfocada en crecimiento." },
+        { "title": "Crecimiento", "text": "Escalabilidad y desarrollo empresarial sostenible." }
+      ]
     }
-  ]
-}
+    ]
+    }

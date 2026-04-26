@@ -122,6 +122,36 @@ function renderGrid(section) {
   `;
 }
 
+
+function renderCardsPremium(section) {
+
+  if (!section.items) {
+    console.warn("⚠️ cards-premium sin items:", section);
+  }
+
+  return `
+    <section id="${section.id}" class="cards-premium-section">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <h2>${safe(section.title)}</h2>
+          ${section.text ? `<p>${safe(section.text)}</p>` : ""}
+        </div>
+
+        <div class="cards-premium-grid">
+          ${(section.items || []).map(item => `
+            <article class="card-premium reveal">
+              <h3>${safe(item.title)}</h3>
+              <p>${safe(item.text)}</p>
+            </article>
+          `).join("")}
+        </div>
+
+      </div>
+    </section>
+  `;
+}
+
 function renderDefault(section, contact) {
 
   const MAX_ITEMS = 3;
@@ -252,7 +282,8 @@ function renderDefault(section, contact) {
 const sectionRenderers = {
   "grid-extended": renderGridExtended,
   "grid": renderGrid,
-  "default": renderDefault
+  "default": renderDefault,
+  "cards-premium": renderCardsPremium
 };
 
       /* ===================================
