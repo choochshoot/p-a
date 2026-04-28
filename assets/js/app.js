@@ -630,6 +630,7 @@ function initializeUI(data) {
   initReadMore(); // 👈 UX collapsible
 
   initScrollSpy(); // 🔥 AQUÍ EXACTO
+  initMobileCTA(); // 🔥 CTA MOBILE (AQUÍ VA)
 }
 
 /* ===================================
@@ -723,3 +724,47 @@ function initStickyMenu() {
 
 // inicializar
 initStickyMenu();
+
+// ===================================
+// CTA FLOAT (MOBILE ONLY)
+// ===================================
+
+function initMobileCTA() {
+
+  // solo mobile
+  if (window.innerWidth >= 1024) return;
+
+  const targetSection = document.querySelector("#areas-estrategicas + section");
+  if (!targetSection) return;
+
+  // 🔥 crear botón
+  const cta = document.createElement("a");
+  cta.href = "#contacto";
+  cta.className = "cta-float btn btn-premium";
+  cta.textContent = "Solicitar Diagnóstico";
+
+  document.body.appendChild(cta);
+
+  // 🔥 observer inteligente (UX PRO)
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+          cta.classList.add("visible");
+        } else {
+          cta.classList.remove("visible");
+        }
+
+      });
+    },
+    {
+      root: null,
+      rootMargin: "-10% 0px -80% 0px",
+      threshold: 0
+    }
+  );
+
+  observer.observe(targetSection);
+
+}

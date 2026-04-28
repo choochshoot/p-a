@@ -121,3 +121,52 @@
     0 0 20px rgba(44,111,163,.35);
 }
 
+/* ===================================
+   CTA FLOAT MOBILE
+=================================== */
+
+.cta-float {
+  position: fixed;
+  bottom: 80px; /* base segura */
+  left: 50%;
+
+  transform: translateX(-50%) translateY(0); /* 👈 limpio */
+
+  opacity: 0;
+  pointer-events: none;
+
+  z-index: 9999;
+
+  transition: all .4s ease;
+}
+
+.cta-float.visible {
+  opacity: 1;
+  pointer-events: auto;
+
+  transform: translateX(-50%) translateY(-700px); /* 🔥 SUBE el botón */
+
+  box-shadow:
+    0 0 25px rgba(44,111,163,.6),
+    0 0 60px rgba(38,183,205,.4);
+}
+
+/* MOBILE SIZE (CTA COMPACTO) */
+@media (max-width: 768px) {
+
+  .cta-float {
+    bottom: 60px; /* 🔥 evita WhatsApp */
+
+    width: auto; /* 🔥 ya no ocupa todo */
+    max-width: none;
+
+    padding: 12px 22px;
+    font-size: 0.9rem;
+
+    border-radius: 30px;
+
+    white-space: nowrap;
+  }
+
+}
+

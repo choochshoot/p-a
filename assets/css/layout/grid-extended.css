@@ -101,7 +101,7 @@
   }
 
   .grid-extended-cta {
-    justify-self: start;
+    display: none; /* 🔥 oculta botón en mobile */
   }
 
 }
