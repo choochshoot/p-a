@@ -93,6 +93,35 @@
     },
     {
       "enabled": true,
+      "id": "auditoria-cards",
+      "type": "cards-special",
+      "showInMenu": false,
+      "title": "Áreas clave de auditoría",
+      "items": [
+        {
+          "title": "Registros contables",
+          "text": "Revisión de registros contables."
+        },
+        {
+          "title": "Procesos financieros",
+          "text": "Evaluación de procesos administrativos."
+        },
+        {
+          "title": "Inconsistencias",
+          "text": "Identificación de inconsistencias."
+        },
+        {
+          "title": "Controles internos",
+          "text": "Evaluación de controles internos."
+        },
+        {
+          "title": "Optimización",
+          "text": "Recomendaciones para mejorar procesos financieros."
+        }
+      ]
+    },
+    {
+      "enabled": true,
       "id": "especialistas",
       "type": "default",
       "title": "Servicios Contables",

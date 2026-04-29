@@ -152,6 +152,30 @@ function renderCardsPremium(section) {
   `;
 }
 
+function renderCardsSpecial(section) {
+
+  return `
+    <section id="${section.id}" class="cards-special-section">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <h2>${safe(section.title)}</h2>
+        </div>
+
+        <div class="cards-special-grid">
+          ${(section.items || []).map(item => `
+            <article class="card-special reveal">
+              <h3>${safe(item.title)}</h3>
+              <p>${safe(item.text)}</p>
+            </article>
+          `).join("")}
+        </div>
+
+      </div>
+    </section>
+  `;
+}
+
 function renderDefault(section, contact) {
 
   const MAX_ITEMS = 3;
@@ -283,7 +307,8 @@ const sectionRenderers = {
   "grid-extended": renderGridExtended,
   "grid": renderGrid,
   "default": renderDefault,
-  "cards-premium": renderCardsPremium
+  "cards-premium": renderCardsPremium,
+  "cards-special": renderCardsSpecial // 🔥 NUEVO
 };
 
       /* ===================================

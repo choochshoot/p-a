@@ -109,3 +109,149 @@
   color: #1e293b;
   margin-right: 2px;
 }
+
+/* ===================================
+   SPECIAL VARIANT (5 CARDS)
+   SOLO PARA ESTA SECCIÓN
+=================================== */
+
+@media (min-width: 1024px) {
+
+  .cards-premium-grid.special-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+}
+
+/* ===================================
+   CARDS SPECIAL (AUDITORÍA)
+=================================== */
+
+.cards-special-grid {
+  display: grid;
+  gap: 20px;
+}
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+  .cards-special-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* ===================================
+   MOBILE — PELDAÑOS (STAGGERED)
+=================================== */
+
+@media (max-width: 768px) {
+
+  .cards-special-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .card-special {
+    width: 85%;
+  }
+
+  /* efecto escalonado */
+  .card-special:nth-child(odd) {
+    align-self: flex-start;
+  }
+
+  .card-special:nth-child(even) {
+    align-self: flex-end;
+  }
+
+}
+
+/* CARD */
+.card-special {
+  padding: 1.4rem;
+  border-radius: 16px;
+
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255,255,255,0.1);
+
+  transition: all .3s ease;
+}
+
+.card-special:hover {
+  transform: translateY(-6px);
+}
+
+.card-special:active {
+  transform: scale(1.03);
+}
+
+/* ===================================
+   GLOW FLOW EFFECT (PELDAÑOS MOBILE)
+=================================== */
+
+@media (max-width: 768px) {
+
+  .card-special {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-special::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -150%;
+
+    width: 200%;
+    height: 200%;
+
+    background: linear-gradient(
+      120deg,
+      transparent 40%,
+      rgba(56,189,248,0.15) 48%,
+      rgba(147,197,253,0.25) 50%,
+      rgba(56,189,248,0.15) 52%,
+      transparent 60%
+    );
+
+    transform: rotate(25deg);
+    pointer-events: none;
+  }
+
+  @keyframes glow-slide {
+    0% {
+      transform: translateX(-100%) rotate(25deg);
+    }
+    100% {
+      transform: translateX(100%) rotate(25deg);
+    }
+  }  
+
+  .card-special:nth-child(1)::after {
+    animation: glow-slide 3s ease-in-out infinite;
+    animation-delay: 0s;
+  }
+
+  .card-special:nth-child(2)::after {
+    animation: glow-slide 3s ease-in-out infinite;
+    animation-delay: 0.3s;
+  }
+
+  .card-special:nth-child(3)::after {
+    animation: glow-slide 3s ease-in-out infinite;
+    animation-delay: 0.6s;
+  }
+
+  .card-special:nth-child(4)::after {
+    animation: glow-slide 3s ease-in-out infinite;
+    animation-delay: 0.9s;
+  }
+
+  .card-special:nth-child(5)::after {
+    animation: glow-slide 3s ease-in-out infinite;
+    animation-delay: 1.2s;
+  }
+
+}
