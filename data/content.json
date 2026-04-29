@@ -82,13 +82,13 @@
       "type": "default",
       "title": "Servicio de Auditoría Contable y Financiera",
       "menuLabel": "Servicios",
-      "text": "Realizamos revisiones especializadas de la información contable y financiera con el objetivo de evaluar la razonabilidad de la información financiera y fortalecer los controles internos de la organización.\nLos trabajos de auditoría pueden incluir:\n\n•Revisión de registros contables.\n•Evaluación de procesos administrativos y financieros.\n•Identificación de inconsistencias contables.\n•Evaluación de controles internos.\n•Recomendaciones para mejorar los procesos financieros.\n\nEste servicio permite a las empresas identificar áreas de mejora y fortalecer su estructura administrativa y financiera.",
+      "text": "Realizamos revisiones especializadas de la información contable y financiera con el objetivo de evaluar la razonabilidad de la información financiera y fortalecer los controles internos de la organización.",
       "map": false,
       "cta": null,
       "image": "assets/images/servicio-fiscal2.webp",
       "quote": {
-        "text": "Análisis, control y cercanía para fortalecer decisiones financieras.",
-        "author": "Pulido "
+        "text": "Este servicio permite a las empresas identificar áreas de mejora y fortalecer su estructura administrativa y financiera.",
+        "author": "Pulido Asesores"
       }
     },
     {
@@ -212,34 +212,34 @@
       "showInMenu": false,
       "items": [
         {
-            "title": "Auditoría y control financiero",
-            "text": "Experiencia en auditoría contable y financiera, así como en planeación y control financiero orientado a la transparencia y eficiencia organizacional."
-          },
-          {
-            "title": "Optimización de procesos",
-            "text": "Enfoque en la mejora continua mediante la optimización de procesos administrativos, fortaleciendo la operación interna y la toma de decisiones."
-          },
-          {
-            "title": "Estrategia financiera",
-            "text": "Evaluación financiera integral que permite una toma de decisiones estratégicas con visión de negocio y sostenibilidad a largo plazo."
-          },
-          {
-            "title": "Trayectoria académica",
-            "text": "Actividad docente en instituciones de educación superior impartiendo materias relacionadas con contabilidad, finanzas y análisis financiero."
-          },
-          {
-            "title": "Instituciones",
-            "text": "Participación como profesor en el Instituto Politécnico Nacional, Universidad Nacional Autónoma de México y Escuela Bancaria y Comercial."
-          },
-          {
-            "title": "Visión integral",
-            "text": "Combinación de experiencia técnica, visión financiera del negocio y liderazgo administrativo aplicada a cada proyecto."
-          },
-          {
-            "title": "Valor para el cliente",
-            "text": "Aporta una perspectiva integral en la gestión de la información financiera, generando confianza y soporte estratégico para la toma de decisiones."
-          }
-        ]
+          "title": "Auditoría y control financiero",
+          "text": "Experiencia en auditoría contable y financiera, así como en planeación y control financiero orientado a la transparencia y eficiencia organizacional."
+        },
+        {
+          "title": "Optimización de procesos",
+          "text": "Enfoque en la mejora continua mediante la optimización de procesos administrativos, fortaleciendo la operación interna y la toma de decisiones."
+        },
+        {
+          "title": "Estrategia financiera",
+          "text": "Evaluación financiera integral que permite una toma de decisiones estratégicas con visión de negocio y sostenibilidad a largo plazo."
+        },
+        {
+          "title": "Trayectoria académica",
+          "text": "Actividad docente en instituciones de educación superior impartiendo materias relacionadas con contabilidad, finanzas y análisis financiero."
+        },
+        {
+          "title": "Instituciones",
+          "text": "Participación como profesor en el Instituto Politécnico Nacional, Universidad Nacional Autónoma de México y Escuela Bancaria y Comercial."
+        },
+        {
+          "title": "Visión integral",
+          "text": "Combinación de experiencia técnica, visión financiera del negocio y liderazgo administrativo aplicada a cada proyecto."
+        },
+        {
+          "title": "Valor para el cliente",
+          "text": "Aporta una perspectiva integral en la gestión de la información financiera, generando confianza y soporte estratégico para la toma de decisiones."
+        }
+      ]
     },
     {
       "enabled": true,
