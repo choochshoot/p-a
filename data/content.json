@@ -168,6 +168,45 @@
           "text": "Identificación preventiva de posibles riesgos fiscales."
         }
       ]
+
+    },
+    {
+      "enabled": true,
+      "id": "analisis-planeacion",
+      "type": "services-feature",
+      "showInMenu": false,
+      "title": "Análisis y Planeación Financiera",
+      "text": "Apoyamos a las empresas en el desarrollo de herramientas financieras que permitan comprender mejor el desempeño económico del negocio y facilitar la planeación estratégica.",
+      "subtitle": "Entre los servicios se incluyen:",
+      "items": [
+        {
+          "icon": "📊",
+          "title": "Modelos",
+          "text": "Elaboración de modelos financieros."
+        },
+        {
+          "icon": "📈",
+          "title": "Análisis",
+          "text": "Análisis de rentabilidad del negocio."
+        },
+        {
+          "icon": "⚙️",
+          "title": "Evaluación",
+          "text": "Evaluación de estructura de costos."
+        },
+        {
+          "icon": "💰",
+          "title": "Finanzas",
+          "text": "Proyecciones financieras."
+        },
+        {
+          "icon": "🏢",
+          "title": "Negocio",
+          "text": "Análisis del valor económico del negocio."
+        }
+      ],
+      "footerText": "Este tipo de herramientas permite a los empresarios tomar decisiones con base en información financiera estructurada y confiable."
+  
     },
     {
       "enabled": true,

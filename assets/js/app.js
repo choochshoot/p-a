@@ -176,6 +176,73 @@ function renderCardsSpecial(section) {
   `;
 }
 
+function renderServicesFeature(section) {
+
+  return `
+    <section id="${section.id}" class="services-feature">
+      <div class="container">
+
+        <!-- ================= LEFT ================= -->
+        <div class="services-feature-left">
+
+          <h2 class="reveal">
+            ${section.title}
+          </h2>
+
+          <p class="intro reveal">
+            ${section.text}
+          </p>
+
+          <!-- 🔥 LOTTIE VISUAL -->
+          <div class="services-feature-visual reveal">
+            <div class="lottie-icon"
+                 data-path="assets/lotties/Isometricdatanalysis.json"
+                 data-loop="true">
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ================= RIGHT ================= -->
+        <div class="services-feature-right">
+
+          ${section.subtitle ? `
+            <h3 class="services-subtitle reveal">
+              ${section.subtitle}
+            </h3>
+          ` : ""}
+
+          <div class="services-feature-list">
+            ${(section.items || []).map(item => `
+              <div class="service-feature-item reveal">
+                
+                <div class="service-feature-icon">
+                  ${item.icon || "•"}
+                </div>
+
+                <div class="service-feature-text">
+                  <h4>${item.title}</h4>
+                  <p>${item.text}</p>
+                </div>
+
+              </div>
+            `).join("")}
+          </div>
+
+          <!-- ✅ FOOTER SOLO AQUÍ -->
+          ${section.footerText ? `
+            <p class="services-footer reveal">
+              ${section.footerText}
+            </p>
+          ` : ""}
+
+        </div>
+
+      </div>
+    </section>
+  `;
+}
+
 function renderDefault(section, contact) {
 
   const MAX_ITEMS = 3;
@@ -308,7 +375,8 @@ const sectionRenderers = {
   "grid": renderGrid,
   "default": renderDefault,
   "cards-premium": renderCardsPremium,
-  "cards-special": renderCardsSpecial // 🔥 NUEVO
+  "cards-special": renderCardsSpecial,// 🔥 NUEVO
+  "services-feature": renderServicesFeature
 };
 
       /* ===================================
@@ -639,6 +707,48 @@ function initScrollSpy() {
 }
 
 /* ===================================
+   SERVICES FEATURE — ANIMATIONS PRO
+=================================== */
+
+function initTimelineAnimation() {
+  const lists = document.querySelectorAll(".services-feature-list");
+
+  function update() {
+    lists.forEach(list => {
+      const rect = list.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      const progress = Math.min(
+        Math.max((windowHeight - rect.top) / rect.height, 0),
+        1
+      );
+
+      list.style.setProperty("--line-height", progress * list.scrollHeight + "px");
+    });
+  }
+
+  window.addEventListener("scroll", update);
+  update();
+}
+
+function initActiveItems() {
+  const items = document.querySelectorAll(".service-feature-item");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        items.forEach(i => i.classList.remove("active"));
+        entry.target.classList.add("active");
+      }
+    });
+  }, {
+    threshold: 0.5
+  });
+
+  items.forEach(item => observer.observe(item));
+}
+
+/* ===================================
    INITIALIZE UI (Modular Boot)
 =================================== */
 
@@ -656,6 +766,10 @@ function initializeUI(data) {
 
   initScrollSpy(); // 🔥 AQUÍ EXACTO
   initMobileCTA(); // 🔥 CTA MOBILE (AQUÍ VA)
+
+  // 🔥 NUEVO NIVEL
+  initTimelineAnimation();
+  initActiveItems();
 }
 
 /* ===================================

@@ -362,3 +362,302 @@ section{
   border-left: 2px solid rgba(255,255,255,0.08);
   padding-left: 1.5rem;
 }
+
+/* ===================================
+   SERVICES FEATURE (NUEVA SECCIÓN)
+=================================== */
+
+.services-feature {
+  padding-top: 80px;
+  padding-bottom: 30px;
+}
+
+/* TITULO */
+.services-feature h2 {
+  font-size: 2.3rem;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+/* INTRO */
+.services-feature .intro {
+  margin-top: 20px;
+  max-width: 650px;
+  opacity: 0.9;
+  line-height: 1.7;
+}
+
+/* SUBTITULO */
+.services-subtitle {
+  margin-top: 35px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+/* LISTA */
+.services-feature-list {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ITEM */
+.service-feature-item {
+  display: flex;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  transition: all .3s ease;
+}
+
+.service-feature-item:last-child {
+  border-bottom: none;
+}
+
+/* HOVER */
+.service-feature-item:hover {
+  transform: translateX(8px);
+  transition: transform .3s ease;
+}
+
+/* ICONO */
+.service-feature-icon {
+  font-size: 24px;
+  min-width: 28px;
+  color: var(--accent);
+}
+
+/* TEXTO */
+.service-feature-text h4 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.service-feature-text p {
+  margin-top: 4px;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* FOOTER */
+.services-footer {
+  margin-top: 35px;
+  max-width: 700px;
+  opacity: 0.9;
+  line-height: 1.7;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+  .services-feature h2 {
+    font-size: 1.8rem;
+  }
+
+  .service-feature-item {
+    padding: 16px 0;
+  }
+
+}
+
+/* ===================================
+   SERVICES FEATURE — PREMIUM LINE
+=================================== */
+
+.services-feature-list {
+  position: relative;
+  padding-left: 30px;
+}
+
+/* línea base */
+.services-feature-list::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 0;
+  width: 2px;
+
+  height: var(--line-height, 0px); /* 🔥 CLAVE */
+
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.4),
+    rgba(255,255,255,0.1)
+  );
+
+  transition: height 0.2s ease-out;
+}
+
+/* items */
+.service-feature-item {
+  position: relative;
+  padding-left: 10px;
+}
+
+/* punto con glow */
+.service-feature-item::before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  top: 18px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+
+  box-shadow:
+    0 0 10px rgba(44,111,163,.6),
+    0 0 20px rgba(38,183,205,.4);
+}
+
+/* ===================================
+   SERVICES FEATURE — DESKTOP GRID PRO
+=================================== */
+
+@media (min-width: 1024px) {
+
+  .services-feature .container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  /* ========= LEFT ========= */
+
+  .services-feature-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* ========= RIGHT ========= */
+
+  .services-feature-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Timeline sin margen extra raro */
+  .services-feature-list {
+    margin-top: 0;
+  }
+
+}
+/* ===================================
+   SERVICES FEATURE — OVERRIDE FINAL PRO
+=================================== */
+
+/* ===== BASE ===== */
+
+.services-feature {
+  padding-top: 80px;
+  padding-bottom: 30px; /* 🔥 evita aire inferior */
+}
+
+/* ===== DESKTOP GRID ===== */
+
+@media (min-width: 1024px) {
+
+  .services-feature .container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: start; /* 🔥 evita centrado vertical raro */
+  }
+
+  /* LEFT */
+  .services-feature-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* RIGHT */
+  .services-feature-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* 🔥 IMPORTANTE: reset de cualquier layout viejo */
+  .services-feature .services-subtitle,
+  .services-feature .services-footer,
+  .services-feature-list {
+    margin-top: 0;
+  }
+
+}
+
+/* ===== LOTTIE ===== */
+
+.services-feature-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.services-feature-visual .lottie-icon {
+  width: 100%;
+  max-width: 420px;
+  height: 320px;
+  opacity: 0.95;
+}
+
+/* ===== TEXT ===== */
+
+.services-feature .intro {
+  max-width: 100%;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+/* ===== TITLE ===== */
+
+.services-feature h2 {
+  font-size: clamp(28px, 3vw, 40px);
+  max-width: 900px;
+  line-height: 1.2;
+}
+
+/* ===== FOOTER ===== */
+
+.services-footer {
+  margin-top: 20px;
+  max-width: 100%;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+/* ===================================
+   SERVICES FEATURE — INTERACTIONS PRO
+=================================== */
+
+/* 🔥 TIMELINE ANIMADA */
+.services-feature-list::before {
+  height: var(--line-height, 0px);
+  transition: height 0.2s ease-out;
+}
+
+/* 🔥 ACTIVE ITEM */
+.service-feature-item {
+  opacity: 0.4;
+  transition: all 0.3s ease;
+}
+
+.service-feature-item.active {
+  opacity: 1;
+  transform: translateX(10px);
+}
+
+/* 🔥 LOTTIE STICKY (DESKTOP ONLY) */
+@media (min-width: 1024px) {
+  .services-feature-left {
+    position: sticky;
+    top: 120px;
+  }
+}
