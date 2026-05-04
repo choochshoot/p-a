@@ -428,6 +428,13 @@ section{
   color: var(--accent);
 }
 
+.service-feature-icon svg {
+  width: 26px;
+  height: 26px;
+  color: var(--accent);
+  transition: all 0.3s ease;
+}
+
 /* TEXTO */
 .service-feature-text h4 {
   margin: 0;
@@ -652,6 +659,11 @@ section{
 .service-feature-item.active {
   opacity: 1;
   transform: translateX(10px);
+}
+
+.service-feature-item.active .service-feature-icon svg {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 6px rgba(76,201,240,0.4));
 }
 
 /* 🔥 LOTTIE STICKY (DESKTOP ONLY) */

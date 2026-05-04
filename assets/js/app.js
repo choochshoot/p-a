@@ -1,3 +1,5 @@
+import { ICONS } from "./icons.js";
+
 /* ===================================
    UTILITIES
 =================================== */
@@ -217,7 +219,7 @@ function renderServicesFeature(section) {
               <div class="service-feature-item reveal">
                 
                 <div class="service-feature-icon">
-                  ${item.icon || "•"}
+                   ${ICONS[item.icon] ?? item.icon ?? "•"}
                 </div>
 
                 <div class="service-feature-text">

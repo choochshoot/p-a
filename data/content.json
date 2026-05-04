@@ -180,27 +180,27 @@
       "subtitle": "Entre los servicios se incluyen:",
       "items": [
         {
-          "icon": "📊",
+          "icon": "models",
           "title": "Modelos",
           "text": "Elaboración de modelos financieros."
         },
         {
-          "icon": "📈",
+          "icon": "analysis",
           "title": "Análisis",
           "text": "Análisis de rentabilidad del negocio."
         },
         {
-          "icon": "⚙️",
+          "icon": "evaluation",
           "title": "Evaluación",
           "text": "Evaluación de estructura de costos."
         },
         {
-          "icon": "💰",
+          "icon": "finance",
           "title": "Finanzas",
           "text": "Proyecciones financieras."
         },
         {
-          "icon": "🏢",
+          "icon": "business",
           "title": "Negocio",
           "text": "Análisis del valor económico del negocio."
         }
