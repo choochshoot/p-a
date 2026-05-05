@@ -1,0 +1,25 @@
+/* ============================= */
+/* 🔷 METODOLOGÍA LOTTIE STYLES */
+/* ============================= */
+
+#metodologia .lottie-icon svg path {
+  stroke: #93c5fd !important;
+  filter: drop-shadow(0 0 4px rgba(147,197,253,0.4));
+}
+
+/* ============================= */
+/* 🔷 METODOLOGÍA LOTTIE PRO */
+/* ============================= */
+
+#metodologia .lottie-icon svg {
+  transform: translateZ(0);
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.15));
+}
+
+#metodologia .lottie-icon {
+  transition: transform 0.3s ease;
+}
+
+#metodologia .lottie-icon:hover {
+  transform: scale(1.03);
+}

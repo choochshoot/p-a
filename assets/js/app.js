@@ -198,7 +198,7 @@ function renderServicesFeature(section) {
           <!-- 🔥 LOTTIE VISUAL -->
           <div class="services-feature-visual reveal">
             <div class="lottie-icon"
-                 data-path="assets/lotties/Isometricdatanalysis.json"
+                 data-path="${section.lottie || 'assets/lotties/Isometricdatanalysis.json'}"
                  data-loop="true">
             </div>
           </div>

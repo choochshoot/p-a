@@ -209,18 +209,51 @@
   
     },
     {
+  "enabled": true,
+  "id": "enfoque",
+  "type": "default",
+  "title": "Enfoque",
+  "text": "El despacho busca convertirse en un aliado estratégico de empresas y emprendedores, proporcionando servicios que contribuyan a:\nFortalecer la administración financiera del negocio.\nMantener una contabilidad confiable.\nAsegurar el cumplimiento oportuno de obligaciones fiscales.\nTodo ello con un enfoque basado en orden, prevención y generación de información útil para la toma de decisiones.",
+  "map": false,
+  "cta": null,
+  "image": "assets/images/servicio-fiscal5.webp",
+  "quote": {
+    "text": "El enfoque del despacho es preventivo, buscando que los contribuyentes mantengan una situación fiscal ordenada y alineada con la normativa vigente.",
+    "author": "C.P Gilberto Pulido"
+  }
+    },
+    {
       "enabled": true,
-      "id": "enfoque",
-      "type": "default",
-      "title": "Enfoque",
-      "text": "El despacho busca convertirse en un aliado estratégico de empresas y emprendedores, proporcionando servicios que contribuyan a:\nFortalecer la administración financiera del negocio.\nMantener una contabilidad confiable.\nAsegurar el cumplimiento oportuno de obligaciones fiscales.\nTodo ello con un enfoque basado en orden, prevención y generación de información útil para la toma de decisiones.",
-      "map": false,
-      "cta": null,
-      "image": "assets/images/servicio-fiscal5.webp",
-      "quote": {
-        "text": "El enfoque del despacho es preventivo, buscando que los contribuyentes mantengan una situación fiscal ordenada y alineada con la normativa vigente.",
-        "author": "C.P Gilberto Pulido"
-      }
+      "id": "metodologia",
+      "type": "services-feature",
+      "title": "Metodología de trabajo",
+      "menuLabel": "Metodología",
+      "text": "El despacho opera bajo un esquema de acompañamiento continuo, permitiendo mantener una revisión constante de la información contable y fiscal del cliente.",
+      "lottie": "assets/lotties/metodologia.json",
+      "subtitle": "El modelo de trabajo contempla:",
+      "items": [
+        {
+          "icon": "analysis",
+          "title": "Revisión continua de información",
+          "text": "Se analiza de manera constante la información contable y financiera para verificar su consistencia y detectar áreas de mejora."
+        },
+        {
+          "icon": "evaluation",
+          "title": "Identificación preventiva de riesgos",
+          "text": "Se revisan los procesos contables y fiscales para detectar oportunamente posibles contingencias o desviaciones."
+        },
+        {
+          "icon": "business",
+          "title": "Comunicación constante",
+          "text": "Se mantienen reuniones periódicas con la administración para comentar observaciones y definir acciones correctivas."
+        },
+        {
+          "icon": "models",
+          "title": "Seguimiento de observaciones",
+          "text": "Las observaciones se documentan y se da seguimiento a su atención, fortaleciendo los procesos administrativos y contables."
+        }
+      ],
+      "footerText": "Este esquema permite mantener control permanente, reducir riesgos y fortalecer la toma de decisiones del negocio."
     },
     {
       "enabled": true,
@@ -244,7 +277,7 @@
     },
     {
       "enabled": true,
-      "id": "metodologia",
+      "id": "experiencia",
       "type": "cards-premium",
       "title": "49 años de Experiencia profesional",
       "text": "Su experiencia profesional abarca proyectos relacionados con:",
@@ -256,27 +289,27 @@
         },
         {
           "title": "Optimización de procesos",
-          "text": "Enfoque en la mejora continua mediante la optimización de procesos administrativos, fortaleciendo la operación interna y la toma de decisiones."
+          "text": "Enfoque en la mejora continua mediante la optimización de procesos administrativos."
         },
         {
           "title": "Estrategia financiera",
-          "text": "Evaluación financiera integral que permite una toma de decisiones estratégicas con visión de negocio y sostenibilidad a largo plazo."
+          "text": "Evaluación financiera integral para la toma de decisiones estratégicas."
         },
         {
           "title": "Trayectoria académica",
-          "text": "Actividad docente en instituciones de educación superior impartiendo materias relacionadas con contabilidad, finanzas y análisis financiero."
+          "text": "Actividad docente en instituciones de educación superior."
         },
         {
           "title": "Instituciones",
-          "text": "Participación como profesor en el Instituto Politécnico Nacional, Universidad Nacional Autónoma de México y Escuela Bancaria y Comercial."
+          "text": "Participación en IPN, UNAM y Escuela Bancaria y Comercial."
         },
         {
           "title": "Visión integral",
-          "text": "Combinación de experiencia técnica, visión financiera del negocio y liderazgo administrativo aplicada a cada proyecto."
+          "text": "Combinación de experiencia técnica y liderazgo administrativo."
         },
         {
           "title": "Valor para el cliente",
-          "text": "Aporta una perspectiva integral en la gestión de la información financiera, generando confianza y soporte estratégico para la toma de decisiones."
+          "text": "Perspectiva integral que genera confianza y soporte estratégico."
         }
       ]
     },
@@ -308,4 +341,4 @@
       "quote": null
     }
   ]
-}
+}    
