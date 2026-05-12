@@ -8,6 +8,14 @@ section{
   padding: clamp(4rem, 8vw, 6rem) 0;
 }
 
+#fundadorgp {
+  padding-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+#fundadorgp + #experiencia {
+  padding-top: clamp(1rem, 2.5vw, 2rem);
+}
+
 .container{
   width: min(1100px, 92%);
   margin: 0 auto;
@@ -109,6 +117,14 @@ section{
 
   section{
     padding: clamp(3rem, 6vw, 4rem) 0;
+  }
+
+  #fundadorgp {
+    padding-bottom: 1.75rem;
+  }
+
+  #fundadorgp + #experiencia {
+    padding-top: 0.75rem;
   }
 
   .container.card{
