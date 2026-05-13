@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://choochshoot.github.io/p-a/sitemap.xml
+Sitemap: https://palf.com.mx/sitemap.xml

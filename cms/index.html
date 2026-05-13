@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CMS Local | Pulido Asesores</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <span>PA</span>
+      <div>
+        <strong>CMS Local</strong>
+        <small>Pulido Asesores</small>
+      </div>
+    </div>
+
+    <nav class="tabs" aria-label="Paneles del CMS">
+      <button class="tab active" data-panel="heroPanel" type="button">Hero</button>
+      <button class="tab" data-panel="sectionsPanel" type="button">Secciones</button>
+      <button class="tab" data-panel="metaPanel" type="button">Meta</button>
+    </nav>
+
+    <div class="save-box">
+      <button id="saveButton" class="primary" type="button">Guardar cambios</button>
+      <a class="ghost" href="/" target="_blank" rel="noreferrer">Vista previa</a>
+      <p id="status" class="status">Cargando contenido...</p>
+    </div>
+  </aside>
+
+  <main class="workspace">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Editor visual</p>
+        <h1>Contenido del sitio</h1>
+      </div>
+      <button id="reloadButton" class="secondary" type="button">Recargar JSON</button>
+    </header>
+
+    <section id="heroPanel" class="panel active" aria-label="Editor del hero">
+      <div class="panel-head">
+        <h2>Hero</h2>
+        <label class="switch">
+          <input id="heroEnabled" type="checkbox">
+          <span>Activo</span>
+        </label>
+      </div>
+      <div class="form-grid">
+        <label>Título <input id="heroTitle" type="text"></label>
+        <label>Subtítulo <input id="heroSubtitle" type="text"></label>
+        <label>Imagen hero <input id="heroBackground" type="text" placeholder="assets/images/hero.webp"></label>
+        <label>Logo <input id="heroLogo" type="text" placeholder="assets/images/logow.webp"></label>
+        <label>Texto CTA <input id="heroCtaText" type="text"></label>
+        <label>URL CTA <input id="heroCtaUrl" type="text"></label>
+      </div>
+      <div class="asset-row">
+        <label>Subir imagen para hero <input id="heroUpload" type="file" accept="image/*"></label>
+        <button class="secondary" data-upload="heroUpload" data-content-path="hero.background" data-folder="hero" type="button">Usar como imagen hero</button>
+        <button class="secondary" data-upload="heroUpload" data-content-path="hero.logo" data-folder="logo" type="button">Usar como logo</button>
+      </div>
+    </section>
+
+    <section id="sectionsPanel" class="panel" aria-label="Editor de secciones">
+      <div class="panel-head">
+        <h2>Secciones</h2>
+        <button id="addSectionButton" class="primary" type="button">Nueva sección</button>
+      </div>
+      <div class="section-editor">
+        <div>
+          <ol id="sectionList" class="section-list"></ol>
+        </div>
+        <form id="sectionForm" class="section-form">
+          <div class="empty-state">Selecciona una sección para editarla.</div>
+        </form>
+      </div>
+    </section>
+
+    <section id="metaPanel" class="panel" aria-label="Editor de metadatos">
+      <div class="panel-head">
+        <h2>Meta y contacto</h2>
+      </div>
+      <div class="form-grid">
+        <label>Título del sitio <input id="metaTitle" type="text"></label>
+        <label>Descripción <textarea id="metaDescription" rows="4"></textarea></label>
+        <label>URL pública <input id="metaUrl" type="text"></label>
+        <label>Keywords <input id="metaKeywords" type="text"></label>
+        <label>Teléfono WhatsApp <input id="contactWhatsapp" type="text"></label>
+        <label>Email <input id="contactEmail" type="email"></label>
+        <label>Dirección <input id="contactAddress" type="text"></label>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
