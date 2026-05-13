@@ -80,6 +80,7 @@ function bindMeta() {
   bindField("#metaTitle", "meta.title");
   bindField("#metaDescription", "meta.description");
   bindField("#metaUrl", "meta.url");
+  bindField("#metaImage", "meta.image");
   bindField("#metaKeywords", "meta.keywords");
   bindField("#contactWhatsapp", "contact.whatsapp");
   bindField("#contactEmail", "contact.email");
