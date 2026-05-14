@@ -1,4 +1,4 @@
-.venv/
+﻿.venv/
 __pycache__/
 data/backups/
 *.pyc
@@ -8,3 +8,8 @@ data/backups/
 *.bak
 .DS_Store
 Thumbs.db
+data/analytics/
+cms/analytics.html
+cms/analytics.css
+cms/analytics-panel.js
+scripts/analytics_report.py
