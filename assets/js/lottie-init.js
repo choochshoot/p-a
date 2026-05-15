@@ -1,14 +1,21 @@
 function initLotties() {
 
+  if (!window.lottie) {
+    console.warn("lottie-web no esta disponible; se omiten animaciones Lottie.");
+    return;
+  }
+
   const lotties = document.querySelectorAll(".lottie-icon");
 
-  lotties.forEach(el => {
+  const loadLottie = (el) => {
+    if (el.dataset.loaded === "true") return;
 
     const path = el.dataset.path;
     const loop = el.dataset.loop === "true";
-    const autoplay = el.dataset.autoplay !== "false";
 
     if (!path) return;
+
+    el.dataset.loaded = "true";
 
     const animation = lottie.loadAnimation({
       container: el,
@@ -19,7 +26,7 @@ function initLotties() {
     });
 
     // ============================
-    // 🎯 SOLO METODOLOGÍA (COLOR FIX)
+    // SOLO METODOLOGIA (COLOR FIX)
     // ============================
     if (path.includes("metodologia.json")) {
 
@@ -29,28 +36,26 @@ function initLotties() {
 
         paths.forEach(p => {
 
-          // 🎯 CONTORNO (más fino y elegante)
+          // Contorno mas fino y elegante
           if (p.getAttribute("stroke")) {
             p.setAttribute("stroke", "#93c5fd");
             p.setAttribute("stroke-width", "1.5");
           }
 
-          // 🎯 RELLENO (más corporativo)
+          // Relleno mas corporativo
           if (p.getAttribute("fill") && p.getAttribute("fill") !== "none") {
             p.setAttribute("fill", "#3b82f6");
           }
 
-          // 🎯 GLOW CONTROLADO (no neón)
+          // Glow controlado
           p.style.filter = "drop-shadow(0 2px 6px rgba(147,197,253,0.25))";
 
         });
 
       };
 
-      // aplicar una vez
       setTimeout(applyColors, 300);
 
-      // observar cambios internos del SVG (clave para Lottie)
       const mutationObserver = new MutationObserver(applyColors);
 
       mutationObserver.observe(el, {
@@ -60,10 +65,7 @@ function initLotties() {
 
     }
 
-    // ============================
-    // 🎯 ANIMACIÓN POR SCROLL
-    // ============================
-    const observer = new IntersectionObserver(entries => {
+    const playbackObserver = new IntersectionObserver(entries => {
 
       entries.forEach(entry => {
 
@@ -78,8 +80,26 @@ function initLotties() {
 
     }, { threshold: 0.35 });
 
-    observer.observe(el);
+    playbackObserver.observe(el);
+  };
 
+  const loadObserver = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+      if (!entry.isIntersecting) return;
+
+      loadLottie(entry.target);
+      loadObserver.unobserve(entry.target);
+
+    });
+
+  }, {
+    root: null,
+    rootMargin: "240px 0px",
+    threshold: 0
   });
+
+  lotties.forEach(el => loadObserver.observe(el));
 
 }
