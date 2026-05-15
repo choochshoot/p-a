@@ -68,7 +68,25 @@ def valid_gtm_id(gtm_id):
 
 
 def build_gtm_head(gtm_id):
-    return f"""<!-- Google Tag Manager -->
+    return f"""<!-- Google Consent Mode -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){{dataLayer.push(arguments);}}
+(function() {{
+  var choice = null;
+  try {{ choice = window.localStorage.getItem('palf_privacy_consent_v1'); }} catch (error) {{}}
+  gtag('consent', 'default', {{
+    analytics_storage: choice === 'accepted' ? 'granted' : 'denied',
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    functionality_storage: 'granted',
+    security_storage: 'granted',
+    wait_for_update: 500
+  }});
+}})();
+</script>
+<!-- Google Tag Manager -->
 <script>
 (function(w,d,s,l,i){{w[l]=w[l]||[];w[l].push({{'gtm.start':
 new Date().getTime(),event:'gtm.js'}});var f=d.getElementsByTagName(s)[0],
@@ -123,6 +141,19 @@ def sync_analytics_script(html):
         '<script type="module" src="assets/js/app.js"></script>\n<script src="assets/js/analytics.js" defer></script>',
         1,
     )
+
+
+def sync_privacy_banner_script(html):
+    marker = '<script src="assets/js/privacy-banner.js" defer></script>'
+    if marker in html:
+        return html
+    if '<script src="assets/js/analytics.js" defer></script>' in html:
+        return html.replace(
+            '<script src="assets/js/analytics.js" defer></script>',
+            '<script src="assets/js/analytics.js" defer></script>\n<script src="assets/js/privacy-banner.js" defer></script>',
+            1,
+        )
+    return html.replace('</body>', f'{marker}\n</body>', 1)
 
 
 def build_meta_block(meta, hero):
@@ -187,6 +218,7 @@ def main():
     )
     html = upsert_meta_block(html, build_meta_block(meta, hero))
     html = sync_analytics_script(html)
+    html = sync_privacy_banner_script(html)
 
     INDEX_PATH.write_text(html, encoding="utf-8", newline="\n")
     print("Meta tags y analytics sincronizados desde data/content.json y data/site-config.json")

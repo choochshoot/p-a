@@ -1,6 +1,16 @@
 {
-  "analytics": {
-    "enabled": true,
-    "gtmId": "GTM-TXXT848F"
-  }
+    "analytics":  {
+                      "enabled":  true,
+                      "gtmId":  "GTM-TXXT848F"
+                  },
+    "privacyBanner":  {
+                          "enabled":  true,
+                          "storageKey":  "palf_privacy_consent_v1",
+                          "title":  "Privacidad",
+                          "message":  "Usamos cookies y tecnologias similares para medir el uso del sitio y mejorar tu experiencia.",
+                          "acceptText":  "Aceptar",
+                          "rejectText":  "Rechazar",
+                          "moreInfoText":  "Aviso de privacidad",
+                          "moreInfoUrl":  "#privacy"
+                      }
 }

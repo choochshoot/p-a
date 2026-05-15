@@ -1,0 +1,124 @@
+.privacy-banner {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  color: #f8fafc;
+  background: rgba(10, 20, 34, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 16px;
+  box-shadow: 0 22px 60px rgba(2, 8, 23, 0.34);
+  backdrop-filter: blur(18px) saturate(145%);
+  -webkit-backdrop-filter: blur(18px) saturate(145%);
+  opacity: 0;
+  transform: translateY(18px);
+  pointer-events: none;
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.privacy-banner.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.privacy-banner__copy {
+  display: grid;
+  gap: 6px;
+}
+
+.privacy-banner__title {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #67e8f9;
+}
+
+.privacy-banner__message {
+  margin: 0;
+  max-width: 62ch;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: rgba(248, 250, 252, 0.88);
+}
+
+.privacy-banner__link {
+  width: fit-content;
+  padding: 0;
+  color: rgba(186, 230, 253, 0.95);
+  background: transparent;
+  border: 0;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+.privacy-banner__actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.privacy-banner__button {
+  min-height: 44px;
+  padding: 0 14px;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.privacy-banner__button:active {
+  transform: scale(0.98);
+}
+
+.privacy-banner__button--ghost {
+  color: rgba(248, 250, 252, 0.86);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.privacy-banner__button--primary {
+  color: #07111f;
+  background: linear-gradient(135deg, #67e8f9, #38bdf8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 28px rgba(56, 189, 248, 0.28);
+}
+
+@media (min-width: 760px) {
+  .privacy-banner {
+    right: 24px;
+    bottom: 24px;
+    left: auto;
+    width: min(640px, calc(100vw - 48px));
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 18px 20px;
+    border-radius: 18px;
+  }
+
+  .privacy-banner__actions {
+    grid-template-columns: auto auto;
+  }
+
+  .privacy-banner__button {
+    min-width: 112px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .privacy-banner {
+    transition: none;
+  }
+}

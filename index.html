@@ -6,6 +6,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- GTM HEAD START -->
+<!-- Google Consent Mode -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+(function() {
+  var choice = null;
+  try { choice = window.localStorage.getItem('palf_privacy_consent_v1'); } catch (error) {}
+  gtag('consent', 'default', {
+    analytics_storage: choice === 'accepted' ? 'granted' : 'denied',
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    functionality_storage: 'granted',
+    security_storage: 'granted',
+    wait_for_update: 500
+  });
+})();
+</script>
 <!-- Google Tag Manager -->
 <script>
 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -118,6 +136,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- 🔥 DESPUÉS app -->
 <script type="module" src="assets/js/app.js"></script>
 <script src="assets/js/analytics.js" defer></script>
+<script src="assets/js/privacy-banner.js" defer></script>
 
 <!-- ===================================
      WHATSAPP FLOATING BUTTON
